@@ -1,0 +1,14 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Laptop Dell XPS 13",
+            "price": 25000000
+        },
+        {
+            "id": 2,
+            "name": "iPhone 17 Pro Max",
+            "price": 29990000
+        }
+    ]
+}
