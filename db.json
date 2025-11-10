@@ -76,6 +76,30 @@
         "transport": "Xe rồng"
       },
       "schedule": []
+    },
+    {
+      "id": "5",
+      "type": "Quốc tế",
+      "name": "One piece",
+      "main_destination": "Tân thế giới",
+      "images": [
+        "https://i.pinimg.com/1200x/b7/b7/8f/b7b78fc9db526f797f3995d03759f5df.jpg"
+      ],
+      "short_description": "“Các người muốn lấy kho báu của ta à? Có giỏi thì tự đi lấy đi! Ta để tất cả ở ngoài biển hết đó.”\n- Gol D Roger -",
+      "price": {
+        "adult": 0,
+        "child": 0
+      },
+      "policy": {
+        "cancel": "Hủy khi bạn bị hải quân bắt, hoặc tàu bị chìm",
+        "refund": "Không hoàn"
+      },
+      "supplier": {
+        "hotel": "Không có",
+        "restaurant": "Baratie",
+        "transport": "Go out Merry"
+      },
+      "schedule": []
     }
   ],
   "bookings": [
