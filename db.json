@@ -1,15 +1,26 @@
 {
   "tours": [
     {
-      "id": 1,
-      "type": "tour_trong_nuoc",
+      "id": "1",
+      "type": "Nội địa",
       "name": "Tour Miền Trung 5N4Đ",
       "schedule": [
-        { "day": 1, "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An" },
-        { "day": 2, "activity": "Cù Lao Chàm – Biển Mỹ Khê" }
+        {
+          "day": 1,
+          "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An"
+        },
+        {
+          "day": 2,
+          "activity": "Cù Lao Chàm – Biển Mỹ Khê"
+        }
       ],
-      "images": ["img/tour1_1.jpg", "img/tour1_2.jpg"],
-      "price": { "adult": 5500000, "child": 3000000 },
+      "images": [
+        "https://statictuoitre.mediacdn.vn/thumb_w/640/2017/7-1512755474943.jpg"
+      ],
+      "price": {
+        "adult": 5500000,
+        "child": 3000000
+      },
       "policy": {
         "cancel": "Hủy trước 5 ngày hoàn 80%",
         "refund": "Hoàn tiền trong 7 ngày làm việc"
@@ -18,13 +29,67 @@
         "hotel": "Khách sạn 4 sao Grand",
         "restaurant": "Nhà hàng Đà Thành",
         "transport": "Xe 45 chỗ du lịch"
-      }
+      },
+      "main_destination": "Hồ Chí Minh",
+      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo"
+    },
+    {
+      "id": "2",
+      "type": "Nội địa",
+      "name": "Du lịch Nhật Bản",
+      "main_destination": "Osaka",
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
+      ],
+      "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
+      "price": {
+        "adult": 7500000,
+        "child": 4200000
+      },
+      "policy": {
+        "cancel": "Hoàn tiền 100% cho những ai mặc bệnh lý",
+        "refund": "Hoàn trả sớm nhất trong 7 ngày đầu "
+      },
+      "supplier": {
+        "hotel": "Golden Horizon Hotel",
+        "restaurant": "Lotus Garden Restaurant",
+        "transport": "Máy bay Boing 174"
+      },
+      "schedule": [
+        {
+          "day": 2,
+          "activity": "Osaka"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "Quốc tế",
+      "name": "Anh Quốc",
+      "main_destination": "Tháp Eiffel",
+      "images": [
+        "https://ik.imagekit.io/tvlk/blog/2023/07/thap-eiffel-1-1024x678.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+      ],
+      "short_description": "Tháp Eiffel là biểu tượng nổi tiếng của Paris, Pháp, với kiến trúc thép cao vút và tầm nhìn toàn thành phố.\n",
+      "price": {
+        "adult": 12000000,
+        "child": 8700000
+      },
+      "policy": {
+        "cancel": "Không hoàn trả",
+        "refund": "Không hoàn trả"
+      },
+      "supplier": {
+        "hotel": "Golden Horizon Hotel",
+        "restaurant": "Lotus Garden Restaurant",
+        "transport": "Máy bay Boing 174"
+      },
+      "schedule": []
     }
   ],
-
   "bookings": [
     {
-      "id": 1,
+      "id": "1",
       "tourId": 1,
       "customerName": "Nguyễn Văn A",
       "quantity": 2,
@@ -35,16 +100,18 @@
       "status": "cho_xac_nhan"
     }
   ],
-
   "staffs": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Trần Minh Hùng",
       "birth": "1989-04-12",
       "avatar": "img/hdv1.jpg",
       "phone": "0901234567",
       "certificate": "HDV Quốc tế",
-      "languages": ["Anh", "Nhật"],
+      "languages": [
+        "Anh",
+        "Nhật"
+      ],
       "experience": "10 năm",
       "health": "Tốt",
       "type": "quoc_te",
@@ -52,13 +119,16 @@
       "rating": 4.8
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Nguyễn Thị Lan",
       "birth": "1992-05-20",
       "avatar": "img/hdv2.jpg",
       "phone": "0902345678",
       "certificate": "HDV Nội địa",
-      "languages": ["Anh", "Pháp"],
+      "languages": [
+        "Anh",
+        "Pháp"
+      ],
       "experience": "5 năm",
       "health": "Tốt",
       "type": "noi_dia",
@@ -66,10 +136,9 @@
       "rating": 4.6
     }
   ],
-
   "departures": [
     {
-      "id": 1,
+      "id": "1",
       "tourId": 1,
       "dateStart": "2025-11-20",
       "dateEnd": "2025-11-25",
@@ -82,13 +151,15 @@
         "transport": "Xe 45 chỗ",
         "flight": "VN012"
       },
-      "notifications": ["Đã xác nhận khách sạn", "Chưa xác nhận nhà hàng"]
+      "notifications": [
+        "Đã xác nhận khách sạn",
+        "Chưa xác nhận nhà hàng"
+      ]
     }
   ],
-
   "customers": [
     {
-      "id": 1,
+      "id": "1",
       "bookingId": 1,
       "name": "Nguyễn Văn A",
       "gender": "Nam",
@@ -101,7 +172,7 @@
       "avatar": "img/customer1.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "bookingId": 1,
       "name": "Nguyễn Văn B",
       "gender": "Nam",
@@ -114,19 +185,17 @@
       "avatar": "img/customer2.jpg"
     }
   ],
-
   "notes": [
     {
-      "id": 1,
+      "id": "1",
       "customerId": 1,
       "type": "an_chay",
       "content": "Khách ăn chay trường – tránh món thịt, hải sản"
     }
   ],
-
   "revenues": [
     {
-      "id": 1,
+      "id": "1",
       "tourId": 1,
       "revenue": 25000000,
       "expense": 18000000,
@@ -135,20 +204,32 @@
       "year": 2025
     }
   ],
-
   "guidesLogs": [
     {
-      "id": 1,
+      "id": "1",
       "guideId": 1,
       "tourId": 1,
       "day": 1,
       "content": "Đón khách tại sân bay, di chuyển an toàn, thời tiết đẹp.",
-      "images": ["img/log_day1.jpg"]
+      "images": [
+        "img/log_day1.jpg"
+      ]
     }
   ],
-
   "users": [
-    { "id": 1, "username": "admin", "password": "123456", "role": "admin", "avatar": "img/admin.jpg" },
-    { "id": 2, "username": "hdv_lan", "password": "123456", "role": "hdv", "avatar": "img/hdv_lan.jpg" }
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456",
+      "role": "admin",
+      "avatar": "img/admin.jpg"
+    },
+    {
+      "id": "2",
+      "username": "hdv_lan",
+      "password": "123456",
+      "role": "hdv",
+      "avatar": "img/hdv_lan.jpg"
+    }
   ]
 }
