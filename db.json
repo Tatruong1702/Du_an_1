@@ -1,14 +1,154 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Laptop Dell XPS 13",
-            "price": 25000000
-        },
-        {
-            "id": 2,
-            "name": "iPhone 17 Pro Max",
-            "price": 29990000
-        }
-    ]
+  "tours": [
+    {
+      "id": 1,
+      "type": "tour_trong_nuoc",
+      "name": "Tour Miền Trung 5N4Đ",
+      "schedule": [
+        { "day": 1, "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An" },
+        { "day": 2, "activity": "Cù Lao Chàm – Biển Mỹ Khê" }
+      ],
+      "images": ["img/tour1_1.jpg", "img/tour1_2.jpg"],
+      "price": { "adult": 5500000, "child": 3000000 },
+      "policy": {
+        "cancel": "Hủy trước 5 ngày hoàn 80%",
+        "refund": "Hoàn tiền trong 7 ngày làm việc"
+      },
+      "supplier": {
+        "hotel": "Khách sạn 4 sao Grand",
+        "restaurant": "Nhà hàng Đà Thành",
+        "transport": "Xe 45 chỗ du lịch"
+      }
+    }
+  ],
+
+  "bookings": [
+    {
+      "id": 1,
+      "tourId": 1,
+      "customerName": "Nguyễn Văn A",
+      "quantity": 2,
+      "type": "khach_le",
+      "date": "2025-11-10",
+      "contact": "0901234567",
+      "note": "Yêu cầu phòng đôi, ăn chay",
+      "status": "cho_xac_nhan"
+    }
+  ],
+
+  "staffs": [
+    {
+      "id": 1,
+      "name": "Trần Minh Hùng",
+      "birth": "1989-04-12",
+      "avatar": "img/hdv1.jpg",
+      "phone": "0901234567",
+      "certificate": "HDV Quốc tế",
+      "languages": ["Anh", "Nhật"],
+      "experience": "10 năm",
+      "health": "Tốt",
+      "type": "quoc_te",
+      "toursLed": 120,
+      "rating": 4.8
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Thị Lan",
+      "birth": "1992-05-20",
+      "avatar": "img/hdv2.jpg",
+      "phone": "0902345678",
+      "certificate": "HDV Nội địa",
+      "languages": ["Anh", "Pháp"],
+      "experience": "5 năm",
+      "health": "Tốt",
+      "type": "noi_dia",
+      "toursLed": 50,
+      "rating": 4.6
+    }
+  ],
+
+  "departures": [
+    {
+      "id": 1,
+      "tourId": 1,
+      "dateStart": "2025-11-20",
+      "dateEnd": "2025-11-25",
+      "meetingPoint": "Sân bay Tân Sơn Nhất",
+      "guideId": 1,
+      "driver": "Lê Văn Lộc",
+      "services": {
+        "hotel": "Khách sạn 4 sao Grand",
+        "restaurant": "Nhà hàng Biển Xanh",
+        "transport": "Xe 45 chỗ",
+        "flight": "VN012"
+      },
+      "notifications": ["Đã xác nhận khách sạn", "Chưa xác nhận nhà hàng"]
+    }
+  ],
+
+  "customers": [
+    {
+      "id": 1,
+      "bookingId": 1,
+      "name": "Nguyễn Văn A",
+      "gender": "Nam",
+      "birth": "1990-01-01",
+      "identity": "0123456789",
+      "paymentStatus": "Đã cọc",
+      "specialRequest": "Ăn chay",
+      "checkin": false,
+      "room": "201A",
+      "avatar": "img/customer1.jpg"
+    },
+    {
+      "id": 2,
+      "bookingId": 1,
+      "name": "Nguyễn Văn B",
+      "gender": "Nam",
+      "birth": "1991-02-03",
+      "identity": "9876543210",
+      "paymentStatus": "Chưa cọc",
+      "specialRequest": "",
+      "checkin": false,
+      "room": "202B",
+      "avatar": "img/customer2.jpg"
+    }
+  ],
+
+  "notes": [
+    {
+      "id": 1,
+      "customerId": 1,
+      "type": "an_chay",
+      "content": "Khách ăn chay trường – tránh món thịt, hải sản"
+    }
+  ],
+
+  "revenues": [
+    {
+      "id": 1,
+      "tourId": 1,
+      "revenue": 25000000,
+      "expense": 18000000,
+      "profit": 7000000,
+      "month": 11,
+      "year": 2025
+    }
+  ],
+
+  "guidesLogs": [
+    {
+      "id": 1,
+      "guideId": 1,
+      "tourId": 1,
+      "day": 1,
+      "content": "Đón khách tại sân bay, di chuyển an toàn, thời tiết đẹp.",
+      "images": ["img/log_day1.jpg"]
+    }
+  ],
+
+  "users": [
+    { "id": 1, "username": "admin", "password": "123456", "role": "admin", "avatar": "img/admin.jpg" },
+    { "id": 2, "username": "hdv_lan", "password": "123456", "role": "hdv", "avatar": "img/hdv_lan.jpg" }
+  ]
 }
