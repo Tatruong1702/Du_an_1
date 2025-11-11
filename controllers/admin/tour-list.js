@@ -95,19 +95,21 @@ const placeMarker = (latlng) => {
     .bindPopup('Vị trí đã chọn')
     .openPopup();
 
-  // Reverse geocoding để lấy tên địa điểm (an toàn)
-  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+  // gán tạm bằng toạ độ để tránh trường hợp người bấm xác nhận ngay
+  selectedLocationName = `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+  const elSel = document.getElementById('selectedLocation');
+  if (elSel) elSel.textContent = selectedLocationName;
+
+  // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
+fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
     .then(res => res.json())
     .then(data => {
-      selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
-      const el = document.getElementById('selectedLocation');
-      if (el) el.textContent = selectedLocationName;
+      selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
+      if (elSel) elSel.textContent = selectedLocationName;
     })
     .catch(err => {
       console.log(err);
-      selectedLocationName = `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
-      const el = document.getElementById('selectedLocation');
-      if (el) el.textContent = selectedLocationName;
+      // giữ selectedLocationName là tọa độ (đã set ở trên)
     });
 };
 
@@ -179,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
   
   const form = document.getElementById('addTourForm');
-  console.log("Form found:", form);
+console.log("Form found:", form);
   
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -251,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
           restaurant: inputSupplierRestaurant?.value || '',
           transport: inputSupplierTransport?.value || ''
         },
-        schedule: schedule.length > 0 ? schedule : []
+schedule: schedule.length > 0 ? schedule : []
       };
 
       console.log("Data:", data);
@@ -326,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="col-md-6">
             <label class="form-label">Hoạt động</label>
             <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-          </div>
+</div>
           <div class="col-md-2">
             <label class="form-label">Bản đồ</label>
             <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
@@ -350,28 +352,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ========== NÚT CHỌN BẢN ĐỒ ==========
+  // ========== NÚT CHỌN BẢN ĐỒ (sửa) =========
   const mapButtons = document.querySelectorAll('.btnMapLocation');
   mapButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      currentScheduleItem = e.target.closest('.schedule-item');
-      console.log("Selected schedule item:", currentScheduleItem); // Debug
+      // dùng e.currentTarget để chắc chắn lấy đúng nút (không phụ thuộc vào target con)
+      currentScheduleItem = e.currentTarget.closest('.schedule-item');
+      console.log("Selected schedule item:", currentScheduleItem);
       if (!map) {
         setTimeout(initMap, 300);
       }
-      selectedLocationName = ''; // Reset để chọn mới
+      // set ngay giá trị tạm (tọa độ sẽ hiển thị nếu reverse geocode chậm)
+      selectedLocationName = '';
       const sel = document.getElementById('selectedLocation');
       if (sel) sel.textContent = 'Chưa chọn';
     });
   });
 
-  // ========== NÚT XÁC NHẬN BẢN ĐỒ ==========
+  // ========== NÚT XÁC NHẬN BẢN ĐỒ (cho phép fallback từ marker) =========
   const confirmMapBtn = document.getElementById('confirmMapBtn');
   if (confirmMapBtn) {
     confirmMapBtn.addEventListener('click', () => {
-      console.log("Confirm clicked - selectedLocationName:", selectedLocationName); // Debug
-      console.log("Confirm clicked - currentScheduleItem:", currentScheduleItem); // Debug
-      
+      console.log("Confirm clicked - selectedLocationName:", selectedLocationName);
+      console.log("Confirm clicked - currentScheduleItem:", currentScheduleItem);
+
+      // nếu chưa có name nhưng có marker, dùng toạ độ marker làm fallback
+      if ((!selectedLocationName || !selectedLocationName.trim()) && marker) {
+        const latlng = marker.getLatLng();
+        selectedLocationName = `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+      }
+
       if (selectedLocationName && selectedLocationName.trim() && currentScheduleItem) {
         currentScheduleItem.dataset.location = selectedLocationName;
         const activityInput = currentScheduleItem.querySelector('.schedule-activity');
@@ -385,9 +395,9 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedLocationName = '';
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
-        console.log("Confirm success!"); // Debug
+console.log("Confirm success!");
       } else {
-        console.log("Validation failed!"); // Debug
+        console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');
       }
     });
@@ -400,4 +410,3 @@ document.addEventListener('DOMContentLoaded', () => {
     btnToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
   }
 });
-
