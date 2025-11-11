@@ -1,6 +1,39 @@
 {
   "tours": [
     {
+      "id": "1",
+      "type": "Nội địa",
+      "name": "Tour Miền Trung 5N4Đ",
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An"
+        },
+        {
+          "day": 2,
+          "activity": "Cù Lao Chàm – Biển Mỹ Khê"
+        }
+      ],
+      "images": [
+        "https://statictuoitre.mediacdn.vn/thumb_w/640/2017/7-1512755474943.jpg"
+      ],
+      "price": {
+        "adult": 5500000,
+        "child": 3000000
+      },
+      "policy": {
+        "cancel": "Hủy trước 5 ngày hoàn 80%",
+        "refund": "Hoàn tiền trong 7 ngày làm việc"
+      },
+      "supplier": {
+        "hotel": "Khách sạn 4 sao Grand",
+        "restaurant": "Nhà hàng Đà Thành",
+        "transport": "Xe 45 chỗ du lịch"
+      },
+      "main_destination": "Hồ Chí Minh",
+      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo"
+    },
+    {
       "id": "2",
       "type": "Nội địa",
       "name": "Du lịch Nhật Bản",
@@ -52,54 +85,6 @@
         "transport": "Máy bay Boing 174"
       },
       "schedule": []
-    },
-    {
-      "id": "4",
-      "type": "Nội địa",
-      "name": "Đi xuống âm phủ",
-      "main_destination": "Âm phủ",
-      "images": [
-        "https://i.pinimg.com/736x/ba/e5/4e/bae54edfa4196678a569b7ac3ed8f491.jpg"
-      ],
-      "short_description": "siêu đẹp",
-      "price": {
-        "adult": 122000000,
-        "child": 22222222220
-      },
-      "policy": {
-        "cancel": "abc",
-        "refund": "abc"
-      },
-      "supplier": {
-        "hotel": "Âm phủ hotel",
-        "restaurant": "Nhà hàng Âm phủ",
-        "transport": "Xe rồng"
-      },
-      "schedule": []
-    },
-    {
-      "id": "5",
-      "type": "Quốc tế",
-      "name": "One piece",
-      "main_destination": "Tân thế giới",
-      "images": [
-        "https://i.pinimg.com/1200x/b7/b7/8f/b7b78fc9db526f797f3995d03759f5df.jpg"
-      ],
-      "short_description": "“Các người muốn lấy kho báu của ta à? Có giỏi thì tự đi lấy đi! Ta để tất cả ở ngoài biển hết đó.”\n- Gol D Roger -",
-      "price": {
-        "adult": 0,
-        "child": 0
-      },
-      "policy": {
-        "cancel": "Hủy khi bạn bị hải quân bắt, hoặc tàu bị chìm",
-        "refund": "Không hoàn"
-      },
-      "supplier": {
-        "hotel": "Không có",
-        "restaurant": "Baratie",
-        "transport": "Go out Merry"
-      },
-      "schedule": []
     }
   ],
   "bookings": [
@@ -117,7 +102,7 @@
   ],
   "staffs": [
     {
-      "id": "1",
+"id": "1",
       "name": "Trần Minh Hùng",
       "birth": "1989-04-12",
       "avatar": "img/hdv1.jpg",
