@@ -106,7 +106,11 @@ const placeMarker = (latlng) => {
 // Hàm thêm tour
 const handleAdd = async (data) => {
   try {
+<<<<<<< HEAD
     // Lấy danh sách hiện có để tính id mới
+=======
+// Lấy danh sách hiện có để tính id mới
+>>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
     const listRes = await fetch('http://localhost:3000/tours');
     const list = await listRes.json();
     const numericIds = list
@@ -180,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const inputDescription = form.querySelector('textarea[name="short_description"]');
       const inputPriceAdult = form.querySelector('input[name="price_adult"]');
       const inputPriceChild = form.querySelector('input[name="price_child"]');
-      const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
+const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       const inputPolicyRefund = form.querySelector('textarea[name="policy_refund"]');
       const inputSupplierHotel = form.querySelector('input[name="supplier_hotel"]');
       const inputSupplierRestaurant = form.querySelector('input[name="supplier_restaurant"]');
@@ -263,7 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
           <div class="row mb-2">
             <div class="col-md-4">
+<<<<<<< HEAD
               <label class="form-label">Ngày thứ</label>
+=======
+<label class="form-label">Ngày thứ</label>
+>>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
               <input type="number" class="form-control schedule-day" placeholder="1" min="1">
             </div>
             <div class="col-md-6">
@@ -336,7 +344,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========== NÚT CHỌN BẢN ĐỒ ==========
   const mapButtons = document.querySelectorAll('.btnMapLocation');
   mapButtons.forEach(btn => {
+<<<<<<< HEAD
     btn.addEventListener('click', (e) => {
+=======
+btn.addEventListener('click', (e) => {
+>>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
       currentScheduleItem = e.target.closest('.schedule-item');
       console.log("Selected schedule item:", currentScheduleItem); // Debug
       if (!map) {
