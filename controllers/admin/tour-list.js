@@ -106,11 +106,7 @@ const placeMarker = (latlng) => {
 // Hàm thêm tour
 const handleAdd = async (data) => {
   try {
-<<<<<<< HEAD
     // Lấy danh sách hiện có để tính id mới
-=======
-// Lấy danh sách hiện có để tính id mới
->>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
     const listRes = await fetch('http://localhost:3000/tours');
     const list = await listRes.json();
     const numericIds = list
@@ -267,11 +263,7 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
         <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
           <div class="row mb-2">
             <div class="col-md-4">
-<<<<<<< HEAD
               <label class="form-label">Ngày thứ</label>
-=======
-<label class="form-label">Ngày thứ</label>
->>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
               <input type="number" class="form-control schedule-day" placeholder="1" min="1">
             </div>
             <div class="col-md-6">
@@ -344,11 +336,7 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
   // ========== NÚT CHỌN BẢN ĐỒ ==========
   const mapButtons = document.querySelectorAll('.btnMapLocation');
   mapButtons.forEach(btn => {
-<<<<<<< HEAD
     btn.addEventListener('click', (e) => {
-=======
-btn.addEventListener('click', (e) => {
->>>>>>> cf04ed9e7b074ce59a8d414e599f55dba07fbb84
       currentScheduleItem = e.target.closest('.schedule-item');
       console.log("Selected schedule item:", currentScheduleItem); // Debug
       if (!map) {
