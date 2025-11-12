@@ -101,7 +101,11 @@ const placeMarker = (latlng) => {
   if (elSel) elSel.textContent = selectedLocationName;
 
   // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
+<<<<<<< HEAD
   fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+=======
+fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+>>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
     .then(res => res.json())
     .then(data => {
       selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
@@ -181,8 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
 
   const form = document.getElementById('addTourForm');
+<<<<<<< HEAD
   console.log("Form found:", form);
 
+=======
+console.log("Form found:", form);
+  
+>>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -257,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
           restaurant: inputSupplierRestaurant?.value || '',
           transport: inputSupplierTransport?.value || ''
         },
-        schedule: schedule.length > 0 ? schedule : []
+schedule: schedule.length > 0 ? schedule : []
       };
 
       console.log("Data:", data);
@@ -332,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="col-md-6">
             <label class="form-label">Hoạt động</label>
             <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-          </div>
+</div>
           <div class="col-md-2">
             <label class="form-label">Bản đồ</label>
             <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
@@ -399,7 +408,11 @@ document.addEventListener('DOMContentLoaded', () => {
         selectedLocationName = '';
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
+<<<<<<< HEAD
         console.log("Confirm success!");
+=======
+console.log("Confirm success!");
+>>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
       } else {
         console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');
@@ -414,4 +427,3 @@ document.addEventListener('DOMContentLoaded', () => {
     btnToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
   }
 });
-
