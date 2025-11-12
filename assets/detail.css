@@ -130,3 +130,15 @@ body {
   #tourThumbs img{ width:60px; height:50px; }
   .tour-header h1{ font-size:28px; }
 }
+
+/* Bỏ gạch chân cho tất cả link */
+a {
+  text-decoration: none;
+  color: inherit; /* Giữ nguyên màu chữ (hoặc m có thể đặt màu khác) */
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--accent, #ff6a00); /* Nếu có biến màu accent thì dùng, không thì cam tươi */
+}
+

@@ -2,7 +2,8 @@ fetch("http://localhost:3000/tours")
   .then(res => res.json())
   .then(tours => {
     const totalTours = tours.length;
-    document.getElementById("total-tours").textContent = `Số tour hiện có: ${totalTours}`;
+    const el = document.getElementById("total-tours");
+    if (el) el.textContent = `Số tour hiện có: ${totalTours}`;
   })
   .catch(err => {
     console.error("Lỗi khi lấy dữ liệu:", err);
@@ -29,9 +30,9 @@ const renderTour = (list) => {
         <td>${p.type}</td>
         <td>${p.name}</td>
         <td>${p.main_destination}</td>
-        <td><img src="${p.images[0]}" width="160" height="100" alt=""></td>
-        <td>${p.short_description}</td>
-        <td>${p.price.child.toLocaleString()}~${p.price.adult.toLocaleString()}đ</td>
+        <td><img src="${p.images && p.images[0] ? p.images[0] : '/assets/placeholder.jpg'}" width="160" height="100" alt=""></td>
+        <td>${p.short_description || ''}</td>
+        <td>${(p.price?.child ?? 0).toLocaleString()}~${(p.price?.adult ?? 0).toLocaleString()}đ</td>
         
         <td>
           <button onclick="handleDelete('${p.id}')" class="btn btn-danger">Xóa</button>
@@ -43,7 +44,7 @@ const renderTour = (list) => {
    }).join('');
 
   const tbody = document.querySelector('tbody');
-  tbody.innerHTML = trLists
+  if (tbody) tbody.innerHTML = trLists;
 }
 
 const handleDelete = async (id) => {
@@ -91,16 +92,25 @@ const placeMarker = (latlng) => {
   
   marker = L.marker([latlng.lat, latlng.lng])
     .addTo(map)
-    .bindPopup('Vị trí đã chọn');
+    .bindPopup('Vị trí đã chọn')
+    .openPopup();
 
-  // Reverse geocoding để lấy tên địa điểm
-  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+  // gán tạm bằng toạ độ để tránh trường hợp người bấm xác nhận ngay
+  selectedLocationName = `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+  const elSel = document.getElementById('selectedLocation');
+  if (elSel) elSel.textContent = selectedLocationName;
+
+  // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
+fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
     .then(res => res.json())
     .then(data => {
-      selectedLocationName = data.address.city || data.address.town || data.display_name;
-      document.getElementById('selectedLocation').textContent = selectedLocationName;
+      selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
+      if (elSel) elSel.textContent = selectedLocationName;
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      // giữ selectedLocationName là tọa độ (đã set ở trên)
+    });
 };
 
 // Hàm thêm tour
@@ -125,26 +135,31 @@ const handleAdd = async (data) => {
     if (res.ok) {
       alert("Thêm tour thành công!");
       
-      // Reset form
-      document.getElementById('addTourForm').reset();
-      document.getElementById('scheduleContainer').innerHTML = `
-        <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
-          <div class="row mb-2">
-            <div class="col-md-4">
-              <label class="form-label">Ngày thứ</label>
-              <input type="number" class="form-control schedule-day" placeholder="1" min="1">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Hoạt động</label>
-              <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-            </div>
-            <div class="col-md-2">
-              <label class="form-label">Bản đồ</label>
-              <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
+      // Reset form if exists
+      const addForm = document.getElementById('addTourForm');
+      if (addForm) addForm.reset();
+
+      const scheduleContainer = document.getElementById('scheduleContainer');
+      if (scheduleContainer) {
+        scheduleContainer.innerHTML = `
+          <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
+            <div class="row mb-2">
+              <div class="col-md-4">
+                <label class="form-label">Ngày thứ</label>
+                <input type="number" class="form-control schedule-day" placeholder="1" min="1">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Hoạt động</label>
+                <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Bản đồ</label>
+                <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      }
       
       // Đóng modal
       const modal = bootstrap.Modal.getInstance(document.getElementById('addTourModal'));
@@ -166,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
   
   const form = document.getElementById('addTourForm');
-  console.log("Form found:", form);
+console.log("Form found:", form);
   
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -180,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const inputDescription = form.querySelector('textarea[name="short_description"]');
       const inputPriceAdult = form.querySelector('input[name="price_adult"]');
       const inputPriceChild = form.querySelector('input[name="price_child"]');
-const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
+      const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       const inputPolicyRefund = form.querySelector('textarea[name="policy_refund"]');
       const inputSupplierHotel = form.querySelector('input[name="supplier_hotel"]');
       const inputSupplierRestaurant = form.querySelector('input[name="supplier_restaurant"]');
@@ -189,7 +204,6 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       if (!inputType.value.trim()) {
         alert("Vui lòng chọn loại tour");
         inputType.focus();
-        
         return;
       }
       if (!inputName.value.trim()) {
@@ -231,15 +245,15 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
           child: Number(inputPriceChild.value)
         },
         policy: {
-          cancel: inputPolicyCancel.value,
-          refund: inputPolicyRefund.value
+          cancel: inputPolicyCancel?.value || '',
+          refund: inputPolicyRefund?.value || ''
         },
         supplier: {
-          hotel: inputSupplierHotel.value,
-          restaurant: inputSupplierRestaurant.value,
-          transport: inputSupplierTransport.value
+          hotel: inputSupplierHotel?.value || '',
+          restaurant: inputSupplierRestaurant?.value || '',
+          transport: inputSupplierTransport?.value || ''
         },
-        schedule: schedule.length > 0 ? schedule : []
+schedule: schedule.length > 0 ? schedule : []
       };
 
       console.log("Data:", data);
@@ -259,31 +273,33 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       }
       
       // 2. Reset lịch trình (xóa highlight + giá trị cũ)
-      document.getElementById('scheduleContainer').innerHTML = `
-        <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
-          <div class="row mb-2">
-            <div class="col-md-4">
-              <label class="form-label">Ngày thứ</label>
-              <input type="number" class="form-control schedule-day" placeholder="1" min="1">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Hoạt động</label>
-              <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-            </div>
-            <div class="col-md-2">
-              <label class="form-label">Bản đồ</label>
-              <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
+      const scheduleContainer = document.getElementById('scheduleContainer');
+      if (scheduleContainer) {
+        scheduleContainer.innerHTML = `
+          <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
+            <div class="row mb-2">
+              <div class="col-md-4">
+                <label class="form-label">Ngày thứ</label>
+                <input type="number" class="form-control schedule-day" placeholder="1" min="1">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Hoạt động</label>
+                <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
+              </div>
+              <div class="col-md-2">
+                <label class="form-label">Bản đồ</label>
+                <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      }
       
       // 3. Reset biến map
       selectedLocationName = '';
       currentScheduleItem = null;
-      if (document.getElementById('selectedLocation')) {
-        document.getElementById('selectedLocation').textContent = 'Chưa chọn';
-      }
+      const selEl = document.getElementById('selectedLocation');
+      if (selEl) selEl.textContent = 'Chưa chọn';
       
       // 4. Reset marker trên bản đồ
       if (marker && map) {
@@ -312,7 +328,7 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
           <div class="col-md-6">
             <label class="form-label">Hoạt động</label>
             <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-          </div>
+</div>
           <div class="col-md-2">
             <label class="form-label">Bản đồ</label>
             <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
@@ -322,38 +338,50 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       scheduleContainer.appendChild(newSchedule);
 
       const newBtn = newSchedule.querySelector('.btnMapLocation');
-      newBtn.addEventListener('click', (e) => {
-        currentScheduleItem = e.target.closest('.schedule-item');
-        if (!map) {
-          setTimeout(initMap, 300);
-        }
-        selectedLocationName = '';
-        document.getElementById('selectedLocation').textContent = 'Chưa chọn';
-      });
+      if (newBtn) {
+        newBtn.addEventListener('click', (e) => {
+          currentScheduleItem = e.target.closest('.schedule-item');
+          if (!map) {
+            setTimeout(initMap, 300);
+          }
+          selectedLocationName = '';
+          const sel = document.getElementById('selectedLocation');
+          if (sel) sel.textContent = 'Chưa chọn';
+        });
+      }
     });
   }
 
-  // ========== NÚT CHỌN BẢN ĐỒ ==========
+  // ========== NÚT CHỌN BẢN ĐỒ (sửa) =========
   const mapButtons = document.querySelectorAll('.btnMapLocation');
   mapButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
-      currentScheduleItem = e.target.closest('.schedule-item');
-      console.log("Selected schedule item:", currentScheduleItem); // Debug
+      // dùng e.currentTarget để chắc chắn lấy đúng nút (không phụ thuộc vào target con)
+      currentScheduleItem = e.currentTarget.closest('.schedule-item');
+      console.log("Selected schedule item:", currentScheduleItem);
       if (!map) {
         setTimeout(initMap, 300);
       }
-      selectedLocationName = ''; // Reset để chọn mới
-      document.getElementById('selectedLocation').textContent = 'Chưa chọn';
+      // set ngay giá trị tạm (tọa độ sẽ hiển thị nếu reverse geocode chậm)
+      selectedLocationName = '';
+      const sel = document.getElementById('selectedLocation');
+      if (sel) sel.textContent = 'Chưa chọn';
     });
   });
 
-  // ========== NÚT XÁC NHẬN BẢN ĐỒ ==========
+  // ========== NÚT XÁC NHẬN BẢN ĐỒ (cho phép fallback từ marker) =========
   const confirmMapBtn = document.getElementById('confirmMapBtn');
   if (confirmMapBtn) {
     confirmMapBtn.addEventListener('click', () => {
-      console.log("Confirm clicked - selectedLocationName:", selectedLocationName); // Debug
-      console.log("Confirm clicked - currentScheduleItem:", currentScheduleItem); // Debug
-      
+      console.log("Confirm clicked - selectedLocationName:", selectedLocationName);
+      console.log("Confirm clicked - currentScheduleItem:", currentScheduleItem);
+
+      // nếu chưa có name nhưng có marker, dùng toạ độ marker làm fallback
+      if ((!selectedLocationName || !selectedLocationName.trim()) && marker) {
+        const latlng = marker.getLatLng();
+        selectedLocationName = `${latlng.lat.toFixed(4)}, ${latlng.lng.toFixed(4)}`;
+      }
+
       if (selectedLocationName && selectedLocationName.trim() && currentScheduleItem) {
         currentScheduleItem.dataset.location = selectedLocationName;
         const activityInput = currentScheduleItem.querySelector('.schedule-activity');
@@ -365,10 +393,11 @@ const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
         if (mapModal) mapModal.hide();
         currentScheduleItem = null;
         selectedLocationName = '';
-        document.getElementById('selectedLocation').textContent = 'Chưa chọn';
-        console.log("Confirm success!"); // Debug
+        const sel = document.getElementById('selectedLocation');
+        if (sel) sel.textContent = 'Chưa chọn';
+console.log("Confirm success!");
       } else {
-        console.log("Validation failed!"); // Debug
+        console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');
       }
     });
