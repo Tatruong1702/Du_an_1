@@ -23,7 +23,7 @@ const getTour = async () => {
 getTour();
 
 const renderTour = (list) => {
-   const trLists = list.map((p, index) => {  
+  const trLists = list.map((p, index) => {
     return `
       <tr>
         <th scope="row">${index + 1}</th>  
@@ -31,29 +31,29 @@ const renderTour = (list) => {
         <td>${p.name}</td>
         <td>${p.main_destination}</td>
         <td><img src="${p.images && p.images[0] ? p.images[0] : '/assets/placeholder.jpg'}" width="160" height="100" alt=""></td>
-        <td>${p.short_description || ''}</td>
+        <td>${p.tour_code}</td>
         <td>${(p.price?.child ?? 0).toLocaleString()}~${(p.price?.adult ?? 0).toLocaleString()}đ</td>
         
         <td>
-          <button onclick="handleDelete('${p.id}')" class="btn btn-danger">Xóa</button>
-          <a class="btn btn-info" href="edit.html?id=${p.id}">Sửa</a>
-          <a class="btn btn-success" href="tour-detail.html?id=${p.id}">Chi tiết</a>
+          <button onclick="handleDelete('${p.id}')" class="btn btn-danger"><i class="bi bi-trash3"></i></button>
+          <a class="btn btn-info" href="edit.html?id=${p.id}"><i class="bi bi-pen"></i></a>
+          <a class="btn btn-success" href="/views/admin/tour-detail.html?id=${p.id}"><i class="bi bi-box-arrow-in-up-right"></i></a>
         </td>
       </tr>
     `
-   }).join('');
+  }).join('');
 
   const tbody = document.querySelector('tbody');
   if (tbody) tbody.innerHTML = trLists;
 }
 
 const handleDelete = async (id) => {
-  if(window.confirm("Bạn có chắc chắn muốn xóa không")){
+  if (window.confirm("Bạn có chắc chắn muốn xóa không")) {
     try {
       const res = await fetch(`http://localhost:3000/tours/${id}`, {
         method: 'delete'
       });
-      if(res.ok){
+      if (res.ok) {
         alert("Xóa thành công");
         getTour(); // Reload list
       }
@@ -71,9 +71,9 @@ let currentScheduleItem = null;
 
 const initMap = () => {
   const defaultLocation = [10.7769, 106.7009]; // Hồ Chí Minh [lat, lng]
-  
+
   map = L.map('mapContainer').setView(defaultLocation, 12);
-  
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors',
     maxZoom: 19
@@ -89,7 +89,7 @@ const placeMarker = (latlng) => {
   if (marker) {
     map.removeLayer(marker);
   }
-  
+
   marker = L.marker([latlng.lat, latlng.lng])
     .addTo(map)
     .bindPopup('Vị trí đã chọn')
@@ -101,7 +101,10 @@ const placeMarker = (latlng) => {
   if (elSel) elSel.textContent = selectedLocationName;
 
   // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
-fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+
+  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+
+
     .then(res => res.json())
     .then(data => {
       selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
@@ -134,7 +137,7 @@ const handleAdd = async (data) => {
     console.log("Response status:", res.status);
     if (res.ok) {
       alert("Thêm tour thành công!");
-      
+
       // Reset form if exists
       const addForm = document.getElementById('addTourForm');
       if (addForm) addForm.reset();
@@ -160,11 +163,11 @@ const handleAdd = async (data) => {
           </div>
         `;
       }
-      
+
       // Đóng modal
       const modal = bootstrap.Modal.getInstance(document.getElementById('addTourModal'));
       if (modal) modal.hide();
-      
+
       // Reload
       getTour();
     } else {
@@ -179,19 +182,21 @@ const handleAdd = async (data) => {
 // ========== THÊM TOUR - CHỈ CÓ MỘT DOMContentLoaded ==========
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
-  
+
   const form = document.getElementById('addTourForm');
-console.log("Form found:", form);
-  
+
+  console.log("Form found:", form);
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       console.log("Form submitted!");
-      
+
       const inputType = form.querySelector('select[name="type"]');
       const inputName = form.querySelector('input[name="name"]');
       const inputDestination = form.querySelector('input[name="main_destination"]');
       const inputImages = form.querySelector('input[name="images"]');
+      const inputTourCode = form.querySelector('input[name="tour_code"]');
       const inputDescription = form.querySelector('textarea[name="short_description"]');
       const inputPriceAdult = form.querySelector('input[name="price_adult"]');
       const inputPriceChild = form.querySelector('input[name="price_child"]');
@@ -237,8 +242,11 @@ console.log("Form found:", form);
       const data = {
         type: inputType.value,
         name: inputName.value,
+        tour_code: inputTourCode.value,
         main_destination: inputDestination.value,
-        images: inputImages.value ? [inputImages.value] : [],
+        images: inputImages.value
+          ? inputImages.value.split(',').map(url => url.trim()).filter(url => url)
+          : [],
         short_description: inputDescription.value,
         price: {
           adult: Number(inputPriceAdult.value),
@@ -271,7 +279,7 @@ schedule: schedule.length > 0 ? schedule : []
       if (form) {
         form.reset();
       }
-      
+
       // 2. Reset lịch trình (xóa highlight + giá trị cũ)
       const scheduleContainer = document.getElementById('scheduleContainer');
       if (scheduleContainer) {
@@ -294,19 +302,19 @@ schedule: schedule.length > 0 ? schedule : []
           </div>
         `;
       }
-      
+
       // 3. Reset biến map
       selectedLocationName = '';
       currentScheduleItem = null;
       const selEl = document.getElementById('selectedLocation');
       if (selEl) selEl.textContent = 'Chưa chọn';
-      
+
       // 4. Reset marker trên bản đồ
       if (marker && map) {
         map.removeLayer(marker);
         marker = null;
       }
-      
+
       console.log("Form cleared!");
     });
   }
@@ -395,7 +403,9 @@ schedule: schedule.length > 0 ? schedule : []
         selectedLocationName = '';
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
-console.log("Confirm success!");
+
+        console.log("Confirm success!");
+
       } else {
         console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');

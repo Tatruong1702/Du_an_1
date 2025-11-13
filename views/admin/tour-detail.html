@@ -18,47 +18,77 @@
     <!-- Khối ảnh + thông tin chính -->
     <div class="tour-card">
       <div class="row" id="Tour-detail">
-        <div class="col-lg-6 mb-3 mb-lg-0">
-          <img id="tourMainImage" src="/assets/placeholder.jpg" alt="Ảnh tour">
-        </div>
-        <div class="col-lg-6">
-          <h2 id="tourName">Tên tour</h2>
-          <p id="tourShortDesc" class="text-muted">Mô tả ngắn...</p>
-          <div class="tour-price" id="tourPriceText">0đ</div>
-          <div class="tour-meta text-muted small">Mã tour: <span id="tourCode">-</span></div>
+  <!-- eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
+   <div class="col-lg-6 mb-3 mb-lg-0">
+          <img src="" alt="Ảnh tour" class="img-fluid">
+      </div>
+      <div class="col-lg-6">
+          <h2 id="name"></h2>
+          <p class="text-muted fs-5" id="type"></p>
+          <div class="tour-price" id="price"></div>
+          <div class="tour-meta text-muted small">Mã tour: <span id="tour_code"></span></div>
 
           <div class="mt-4">
-            <button id="tourBtnAddCart" class="btn tour-btn-orange me-2">THÊM VÀO GIỎ</button>
-            <button id="tourBtnBuyNow" class="btn tour-btn-outline-orange">MUA NGAY</button>
+            <button class="btn tour-btn-orange me-2">THÊM VÀO GIỎ</button>
+            <button class="btn tour-btn-outline-orange">MUA NGAY</button>
           </div>
-        </div>
+      </div>
+      <!-- eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee -->
       </div>
     </div>
 
     <!-- Hàng gồm 2 cột: chi tiết + liên quan -->
     <div class="row">
-      <!-- Chi tiết tour -->
-      <div class="col-lg-8">
-        <div class="tour-info-section">
-          <h4>Chi tiết Tour</h4>
-          <div id="tourLongDesc" class="mt-2 text-justify">
-            Nội dung chi tiết của tour sẽ được hiển thị ở đây...
-          </div>
-        </div>
+  <!-- Chi tiết tour -->
+  <div class="col-lg-8">
+    <div class=" p-4 border rounded-4 shadow-sm bg-light">
+      <h4 class="mb-3 text-primary fw-bold">
+        <i class="bi bi-info-circle"></i> Mô tả
+      </h4>
+
+      <!-- Mô tả -->
+      <div id="tourLongDesc" class="mt-2 text-justify fs-5 lh-base fw-semibold">
       </div>
 
-      <!-- Tour liên quan -->
-      <div class="col-lg-4">
-        <div class="tour-info-section">
-          <h4>Các tour liên quan</h4>
-          <div id="tourRelatedTours" class="mt-3 d-flex flex-column gap-3">
-            <!-- Tour liên quan sẽ được chèn động -->
-          </div>
+      <hr class="my-4">
+
+      <!-- Chuyến khởi hành -->
+      <div class="departures" id="departures">
+        <h5 class="text-warning fw-bold mb-3">
+          <i class="bi bi-calendar2-week"></i> Chuyến khởi hành
+        </h5>
+
+        <div class="card border-0 bg-white shadow-sm p-3 rounded-3">
+          <p class="mb-2 fs-6">
+            <strong><i class="bi bi-calendar-date fs-4"></i></strong> 
+            <span id="dateStart" class="text-success fs-5">--/--/----</span> 
+            → 
+            <span id="dateEnd" class="text-danger fs-5">--/--/----</span>
+          </p>
+          <p class="mb-0 fs-6">
+           <strong><i class="bi bi-geo-alt fs-4"></i></strong> 
+            <span id="meetingPoint" class="text-secondary fs-5">Chưa có thông tin</span>
+          </p>
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
+  <!-- Tour liên quan -->
+  <div class="col-lg-4">
+    <div class="tour-info-section p-4 border rounded-4 shadow-sm bg-light">
+      <h4 class="mb-3 text-primary fw-bold">
+        <i class="bi bi-stars"></i> Các tour liên quan
+      </h4>
+      <div id="tourRelatedTours" class="mt-3 d-flex flex-column gap-3">
+        <p class="text-muted">Đang tải các tour liên quan...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+  <script src="/controllers/admin/tour-detail.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
