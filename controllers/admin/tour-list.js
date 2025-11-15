@@ -101,11 +101,8 @@ const placeMarker = (latlng) => {
   if (elSel) elSel.textContent = selectedLocationName;
 
   // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
-<<<<<<< HEAD
-  fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
-=======
+
 fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
->>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
     .then(res => res.json())
     .then(data => {
       selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
@@ -185,13 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
 
   const form = document.getElementById('addTourForm');
-<<<<<<< HEAD
-  console.log("Form found:", form);
 
-=======
 console.log("Form found:", form);
   
->>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -207,9 +200,6 @@ console.log("Form found:", form);
       const inputPriceChild = form.querySelector('input[name="price_child"]');
       const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       const inputPolicyRefund = form.querySelector('textarea[name="policy_refund"]');
-      const inputSupplierHotel = form.querySelector('input[name="supplier_hotel"]');
-      const inputSupplierRestaurant = form.querySelector('input[name="supplier_restaurant"]');
-      const inputSupplierTransport = form.querySelector('input[name="supplier_transport"]');
 
       if (!inputType.value.trim()) {
         alert("Vui lòng chọn loại tour");
@@ -260,11 +250,6 @@ console.log("Form found:", form);
         policy: {
           cancel: inputPolicyCancel?.value || '',
           refund: inputPolicyRefund?.value || ''
-        },
-        supplier: {
-          hotel: inputSupplierHotel?.value || '',
-          restaurant: inputSupplierRestaurant?.value || '',
-          transport: inputSupplierTransport?.value || ''
         },
 schedule: schedule.length > 0 ? schedule : []
       };
@@ -353,7 +338,7 @@ schedule: schedule.length > 0 ? schedule : []
       const newBtn = newSchedule.querySelector('.btnMapLocation');
       if (newBtn) {
         newBtn.addEventListener('click', (e) => {
-          currentScheduleItem = e.target.closest('.schedule-item');
+          currentScheduleItem = e.currentTarget.closest('.schedule-item');
           if (!map) {
             setTimeout(initMap, 300);
           }
@@ -408,11 +393,8 @@ schedule: schedule.length > 0 ? schedule : []
         selectedLocationName = '';
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
-<<<<<<< HEAD
-        console.log("Confirm success!");
-=======
+
 console.log("Confirm success!");
->>>>>>> cd421a130882c686a527f8a5d82239ce045263e7
       } else {
         console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');

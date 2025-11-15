@@ -4,12 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quản lý Tour</title>
+  <title>Quản lý Hướng dẫn viên</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- ✅ THÊM LEAFLET CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/list.css">
 </head>
 
 <body>
@@ -27,14 +25,17 @@
       </div>
 
       <nav>
-        <div class="nav-item"><i class="bi bi-house-door-fill"></i> Trang quản trị</div>
-        <div class="nav-item"><i class="bi bi-airplane"></i> <a href="/views/admin/tour-list.html">Quản lý Tour</a></div>
-        <div class="nav-item"><i class="bi bi-calendar-check"></i> Đợt khởi hành</div>
-        <div class="nav-item"><i class="bi bi-bookmark-check"></i> Đặt chỗ</div>
-        <div class="nav-item"><i class="bi bi-people-fill"></i> Khách hàng</div>
-        <div class="nav-item active"><i class="bi bi-person-badge"></i> Hướng dẫn viên</div>
-        <div class="nav-item"><i class="bi bi-shield-lock-fill"></i> Bảo mật</div>
-        <div class="nav-item"><i class="bi bi-gear-fill"></i> Cài đặt nâng cao</div>
+        <div class="nav-item"><i class="bi bi-house-door-fill"></i><a href="/views/home.html">Trang quản trị</a></div>
+        <div class="nav-item"><i class="bi bi-airplane"></i><a href="/views/admin/tour-list.html"> Quản lý Tour</a>
+        </div>
+        <div class="nav-item"><i class="bi bi-calendar-check"></i><a href=""> Đợt khởi hành</a></div>
+        <div class="nav-item"><i class="bi bi-bookmark-check"></i><a href=""> Đặt chỗ</a></div>
+        <div class="nav-item"><i class="bi bi-people-fill"></i><a href="/views/admin/customer-list.html"> Khách hàng</a>
+        </div>
+        <div class="nav-item active"><i class="bi bi-person-badge"></i><a href="/views/admin/guide-list.html">Hướng dẫn
+            viên</a></div>
+        <div class="nav-item"><i class="bi bi-shield-lock-fill"></i><a href="#">Bảo mật</a></div>
+        <div class="nav-item"><i class="bi bi-gear-fill"></i><a href="#">Cài đặt nâng cao</a></div>
       </nav>
 
       <div style="margin-top:auto; font-size:13px; opacity:.9">
@@ -53,18 +54,23 @@
           style="width:50px;height:50px;font-weight:600">A</div>
       </div>
 
-      <h3 style="margin-bottom:22px; color:#4a3512;">Danh sách Tour</h3>
+      <h3 style="margin-bottom:22px; color:#4a3512;">Danh sách Hướng dẫn viên</h3>
 
       <div class="grid">
         <div class="card-panel">
-          <h2 id="total-tours" style="float: left;">Số tour hiện có: 0</h2>
-          <button class="btn btn-success" style="float: right;" data-bs-toggle="modal" data-bs-target="#addTourModal">+ Thêm mới</button>
-          <div style="clear: both;"></div>
+          <select id="filterSex" class="form-select mt-3">
+            <option value="">-- Lọc theo giới tính --</option>
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+          </select>
         </div>
-
         <div class="card-panel">
-          <h5>Lọc</h5>
-          <input type="text" class="form-control" id="filterSearch" placeholder="Tìm kiếm tour..." style="margin-top: 10px;">
+
+          <select id="filterType" class="form-select mt-3">
+            <option value="">-- Lọc theo loại HDV --</option>
+            <option value="Nội địa">Nội địa</option>
+            <option value="Quốc tế">Quốc tế</option>
+          </select>
         </div>
       </div>
 
@@ -73,16 +79,16 @@
           <thead>
             <tr>
               <th>STT</th>
-              <th>Loại Tour</th>
-              <th>Tên Tour</th>
-              <th>Điểm đến</th>
-              <th>Hình ảnh</th>
-              <th>Mô tả</th>
-              <th>Giá cả</th>
-              <th>Hành động</th>
+              <th>Tên</th>
+              <th>Giới tính</th>
+              <th>Email</th>
+              <th>Avatar</th>
+              <th>SĐT</th>
+              <th>Loại HDV</th>
+              <th>Ngôn ngữ</th>
             </tr>
           </thead>
-          <tbody id="tourTableBody">
+          <tbody id="guideTableBody">
             <tr>
               <td colspan="8" style="text-align:center;color:#999;">Đang tải dữ liệu...</td>
             </tr>
@@ -92,168 +98,11 @@
     </main>
   </div>
 
-  <!-- MODAL THÊM TOUR -->
-  <div class="modal fade" id="addTourModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Thêm Tour Mới</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <form id="addTourForm">
-            <!-- THÔNG TIN CƠ BẢN -->
-            <h6 style="color:#3b2a0a; font-weight:700; margin-bottom:15px; border-left:5px solid #f5c542; padding-left:10px;">
-              Thông tin cơ bản</h6>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">Loại Tour <span style="color:red;">*</span></label>
-                <select class="form-select" name="type" required>
-                  <option value="">-- Chọn loại tour --</option>
-                  <option value="Nội địa">Nội địa</option>
-                  <option value="Quốc tế">Quốc tế</option>
-                  <option value="Theo yêu cầu">Theo yêu cầu</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Tên Tour <span style="color:red;">*</span></label>
-                <input type="text" class="form-control" name="name" placeholder="VD: Tour Miền Trung 5N4Đ" required>
-              </div>
-            </div>
-
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">Điểm đến chính <span style="color:red;">*</span></label>
-                <input type="text" class="form-control" name="main_destination" placeholder="VD: Đà Lạt, Hạ Long..."
-                  required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Ảnh URL</label>
-                <input type="url" class="form-control" name="images" placeholder="https://example.com/image.jpg">
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Mô tả ngắn</label>
-              <textarea class="form-control" name="short_description" rows="2" placeholder="Nhập mô tả tour..."></textarea>
-            </div>
-
-            <!-- GIÁ TIỀN -->
-            <h6 style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">
-              Giá tiền</h6>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">Giá người lớn (VNĐ) <span style="color:red;">*</span></label>
-                <input type="number" class="form-control" name="price_adult" placeholder="5500000" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Giá trẻ em (VNĐ) <span style="color:red;">*</span></label>
-                <input type="number" class="form-control" name="price_child" placeholder="3000000" required>
-              </div>
-            </div>
-
-            <!-- CHÍNH SÁCH -->
-            <h6 style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">
-              Chính sách</h6>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">Chính sách hủy</label>
-                <textarea class="form-control" name="policy_cancel" rows="2" placeholder="VD: Hủy trước 5 ngày hoàn 80%"></textarea>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Chính sách hoàn tiền</label>
-                <textarea class="form-control" name="policy_refund" rows="2" placeholder="VD: Hoàn tiền trong 7 ngày làm việc"></textarea>
-              </div>
-            </div>
-
-            <!-- NHÀ CUNG CẤP -->
-            <h6 style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">
-              Nhà cung cấp dịch vụ</h6>
-            <div class="row mb-3">
-              <div class="col-md-6">
-                <label class="form-label">Khách sạn</label>
-                <input type="text" class="form-control" name="supplier_hotel" placeholder="Khách sạn 4 sao Grand">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Nhà hàng</label>
-                <input type="text" class="form-control" name="supplier_restaurant" placeholder="Nhà hàng Đà Thành">
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label">Phương tiện vận chuyển</label>
-              <input type="text" class="form-control" name="supplier_transport" placeholder="Xe 45 chỗ du lịch">
-            </div>
-
-            <!-- LỊCH TRÌNH -->
-            <h6 style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">Lịch trình</h6>
-            <div id="scheduleContainer">
-              <div class="schedule-item mb-3 p-3" style="background:#f9f7f0; border-radius:6px;">
-                <div class="row mb-2">
-                  <div class="col-md-4">
-                    <label class="form-label">Ngày thứ</label>
-                    <input type="number" class="form-control schedule-day" placeholder="1" min="1">
-                  </div>
-                  <div class="col-md-6">
-                    <label class="form-label">Hoạt động</label>
-                    <input type="text" class="form-control schedule-activity" placeholder="VD: Đà Nẵng – Ngũ Hành Sơn – Hội An">
-                  </div>
-                  <div class="col-md-2">
-                    <label class="form-label">Bản đồ</label>
-                    <button type="button" class="btn btn-sm btn-primary w-100 btnMapLocation" data-bs-toggle="modal" data-bs-target="#mapModal">📍 Chọn</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="button" class="btn btn-sm btn-info" id="addScheduleBtn" style="margin-bottom:20px;">+ Thêm ngày</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Hủy</button>
-          <button type="submit" class="btn btn-save" id="saveTourBtn">Lưu Tour</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL GOOGLE MAPS -->
-  <div class="modal fade" id="mapModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Chọn địa điểm trên bản đồ</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Input tìm kiếm -->
-          <div style="margin-bottom: 10px;">
-            <input type="text" id="searchLocation" class="form-control" placeholder="Tìm kiếm địa điểm...">
-          </div>
-          
-          <!-- ✅ CONTAINER BẢN ĐỒ - CẦN CÓ STYLE HEIGHT -->
-          <div id="mapContainer" style="width: 100%; height: 400px; border-radius: 6px; border: 2px solid #f1e2b5;"></div>
-          
-          <!-- Hiển thị vị trí đã chọn -->
-          <div style="margin-top: 10px; padding: 10px; background: #f9f7f0; border-radius: 6px;">
-            <strong>Vị trí đã chọn:</strong> <span id="selectedLocation" style="color: #2db06b;">Chưa chọn</span>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="button" class="btn btn-success" id="confirmMapBtn">✓ Xác nhận</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- BOOTSTRAP JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <!-- ✅ LEAFLET JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-  
+
   <!-- APP JS -->
-  <script src="/controllers/admin/tour-list.js"></script>
+  <script src="/controllers/admin/guide-list.js"></script>
 </body>
 
 </html>

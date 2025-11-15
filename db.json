@@ -26,11 +26,6 @@
         "cancel": "Hủy trước 5 ngày hoàn 80%",
         "refund": "Hoàn tiền trong 7 ngày làm việc"
       },
-      "supplier": {
-        "hotel": "Khách sạn 4 sao Grand",
-        "restaurant": "Nhà hàng Đà Thành",
-        "transport": "Xe 45 chỗ du lịch"
-      },
       "main_destination": "Hồ Chí Minh",
       "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo"
     },
@@ -51,11 +46,6 @@
       "policy": {
         "cancel": "Hoàn tiền 100% cho những ai mặc bệnh lý",
         "refund": "Hoàn trả sớm nhất trong 7 ngày đầu "
-      },
-      "supplier": {
-        "hotel": "Golden Horizon Hotel",
-        "restaurant": "Lotus Garden Restaurant",
-        "transport": "Máy bay Boing 174"
       },
       "schedule": [
         {
@@ -82,12 +72,59 @@
         "cancel": "Không hoàn trả",
         "refund": "Không hoàn trả"
       },
-      "supplier": {
-        "hotel": "Golden Horizon Hotel",
-        "restaurant": "Lotus Garden Restaurant",
-        "transport": "Máy bay Boing 174"
-      },
       "schedule": []
+    },
+    {
+      "id": "4",
+      "type": "Quốc tế",
+      "name": "Du lịch nước Nga kì vĩ",
+      "tour_code": "UEBM2J98B",
+      "main_destination": "Moscow",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBJnK99fKuCawRTXqw38OPkZrFUYT27X1nQ&s"
+      ],
+      "short_description": "Moscow, thủ đô của Nga, là một thành phố kết hợp giữa lịch sử lâu đời và hiện đại sôi động. Trung tâm thành phố nổi bật với Quảng trường Đỏ và Điện Kremlin, biểu tượng quyền lực và văn hóa của quốc gia. Thành phố còn có nhiều nhà thờ cổ kính, bảo tàng nghệ thuật và kiến trúc Baroque, tôn vinh lịch sử và nghệ thuật Nga. Moscow cũng là trung tâm kinh tế, chính trị và giáo dục lớn, với mạng lưới tàu điện ngầm rộng lớn và cảnh quan đô thị sầm uất. Ban đêm, ánh sáng rực rỡ của các tòa nhà và quảng trường tạo nên vẻ đẹp lãng mạn và hiện đại.\n",
+      "price": {
+        "adult": 3000000,
+        "child": 6700000
+      },
+      "policy": {
+        "cancel": "Hủy trước kì hạn định mức",
+        "refund": "Hoàn tiền sau 2 ngày gửi đơn đăng kí hủy"
+      },
+      "schedule": [
+        {
+          "day": 2,
+          "activity": "Shchyolkovo",
+          "location": "Shchyolkovo"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "type": "Nội địa",
+      "name": "Du lịch Đà Nẵng",
+      "tour_code": "NJEUK43JH",
+      "main_destination": "Đà Nẵng",
+      "images": [
+        "https://vcdn1-dulich.vnecdn.net/2022/06/03/cauvang-1654247842-9403-1654247849.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=Swd6JjpStebEzT6WARcoOA"
+      ],
+      "short_description": "Đà Nẵng là thành phố ven biển miền Trung Việt Nam, nổi tiếng với bãi biển Mỹ Khê dài và cát trắng mịn. Thành phố được biết đến với cầu Rồng và cầu sông Hàn độc đáo, biểu tượng kiến trúc hiện đại. Đà Nẵng còn là cửa ngõ đến các di sản thế giới như Hội An và Mỹ Sơn, thuận tiện cho du lịch khám phá. Ngoài ra, thành phố có nền ẩm thực phong phú, đặc biệt là hải sản tươi sống và các món đặc sản miền Trung. Không gian sống xanh, nhiều công viên và sông Hàn uốn lượn tạo cảm giác thanh bình, dễ chịu cho cả du khách và người dân.\n",
+      "price": {
+        "adult": 4400000,
+        "child": 2000000
+      },
+      "policy": {
+        "cancel": "Miễn phí",
+        "refund": "Cóc trả cho"
+      },
+      "schedule": [
+        {
+          "day": 2,
+          "activity": "Tân Đức, Xã Đinh Văn Lâm Hà, Tỉnh Lâm Đồng, Việt Nam",
+          "location": "Tân Đức, Xã Đinh Văn Lâm Hà, Tỉnh Lâm Đồng, Việt Nam"
+        }
+      ]
     }
   ],
   "bookings": [
@@ -105,10 +142,12 @@
   ],
   "staffs": [
     {
-"id": "1",
+      "id": "1",
       "name": "Trần Minh Hùng",
+      "sex": "Nam",
       "birth": "1989-04-12",
-      "avatar": "img/hdv1.jpg",
+      "email": "tavantruog1702@gmail.com",
+      "avatar": "https://i.pinimg.com/1200x/e6/34/d3/e634d384fb0c31d7245d70d6f70f830d.jpg",
       "phone": "0901234567",
       "certificate": "HDV Quốc tế",
       "languages": [
@@ -124,8 +163,10 @@
     {
       "id": "2",
       "name": "Nguyễn Thị Lan",
+      "sex": "Nữ",
       "birth": "1992-05-20",
-      "avatar": "img/hdv2.jpg",
+      "email": "dducanh2093@gamil.com",
+      "avatar": "https://i.pinimg.com/1200x/c6/3a/14/c63a1442a2e812c1b9e1d8ef72e3c54a.jpg",
       "phone": "0902345678",
       "certificate": "HDV Nội địa",
       "languages": [
@@ -222,17 +263,43 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "Admin",
+      "email": "admin@gmail.com",
+      "phone": "0383742741",
+      "genre": "Ẩn danh",
       "password": "123456",
       "role": "admin",
-      "avatar": "img/admin.jpg"
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
     },
     {
       "id": "2",
-      "username": "hdv_lan",
+      "username": "Tạ Văn Trường",
+      "email": "tavantruog1702@gamil.com",
+      "phone": "0362422418",
+      "genre": "Nam",
       "password": "123456",
-      "role": "hdv",
-      "avatar": "img/hdv_lan.jpg"
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
+    },
+    {
+      "username": "Tạ Vũ Trí",
+      "email": "tathithuhoai2000@gmail.com",
+      "phone": "0362422418",
+      "genre": "Nam",
+      "password": "1234567",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "EB5bClQ"
+    },
+    {
+      "username": "Tạ Vũ Trí",
+      "email": "tathithuhoai2000@gmail.com",
+      "phone": "0262422418",
+      "genre": "Nam",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "PDOzlg0"
     }
   ]
 }
