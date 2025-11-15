@@ -102,13 +102,10 @@ const placeMarker = (latlng) => {
 
   // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
 
-<<<<<<< HEAD
   fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
 
 
-=======
-fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
->>>>>>> my-changes
+
     .then(res => res.json())
     .then(data => {
       selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
@@ -188,15 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
 
   const form = document.getElementById('addTourForm');
-<<<<<<< HEAD
 
   console.log("Form found:", form);
 
-=======
 
-console.log("Form found:", form);
-  
->>>>>>> my-changes
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -406,12 +398,9 @@ schedule: schedule.length > 0 ? schedule : []
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
 
-<<<<<<< HEAD
         console.log("Confirm success!");
 
-=======
-console.log("Confirm success!");
->>>>>>> my-changes
+
       } else {
         console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');
