@@ -102,9 +102,13 @@ const placeMarker = (latlng) => {
 
   // Reverse geocoding để lấy tên địa điểm (cập nhật sau)
 
+<<<<<<< HEAD
   fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
 
 
+=======
+fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latlng.lat}&lon=${latlng.lng}&format=json`)
+>>>>>>> my-changes
     .then(res => res.json())
     .then(data => {
       selectedLocationName = data?.address?.city || data?.address?.town || data?.display_name || selectedLocationName;
@@ -184,9 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM loaded");
 
   const form = document.getElementById('addTourForm');
+<<<<<<< HEAD
 
   console.log("Form found:", form);
 
+=======
+
+console.log("Form found:", form);
+  
+>>>>>>> my-changes
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -202,9 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const inputPriceChild = form.querySelector('input[name="price_child"]');
       const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       const inputPolicyRefund = form.querySelector('textarea[name="policy_refund"]');
-      const inputSupplierHotel = form.querySelector('input[name="supplier_hotel"]');
-      const inputSupplierRestaurant = form.querySelector('input[name="supplier_restaurant"]');
-      const inputSupplierTransport = form.querySelector('input[name="supplier_transport"]');
 
       if (!inputType.value.trim()) {
         alert("Vui lòng chọn loại tour");
@@ -255,11 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
         policy: {
           cancel: inputPolicyCancel?.value || '',
           refund: inputPolicyRefund?.value || ''
-        },
-        supplier: {
-          hotel: inputSupplierHotel?.value || '',
-          restaurant: inputSupplierRestaurant?.value || '',
-          transport: inputSupplierTransport?.value || ''
         },
 schedule: schedule.length > 0 ? schedule : []
       };
@@ -348,7 +350,7 @@ schedule: schedule.length > 0 ? schedule : []
       const newBtn = newSchedule.querySelector('.btnMapLocation');
       if (newBtn) {
         newBtn.addEventListener('click', (e) => {
-          currentScheduleItem = e.target.closest('.schedule-item');
+          currentScheduleItem = e.currentTarget.closest('.schedule-item');
           if (!map) {
             setTimeout(initMap, 300);
           }
@@ -404,8 +406,12 @@ schedule: schedule.length > 0 ? schedule : []
         const sel = document.getElementById('selectedLocation');
         if (sel) sel.textContent = 'Chưa chọn';
 
+<<<<<<< HEAD
         console.log("Confirm success!");
 
+=======
+console.log("Confirm success!");
+>>>>>>> my-changes
       } else {
         console.log("Validation failed!");
         alert('Vui lòng chọn một vị trí trên bản đồ');

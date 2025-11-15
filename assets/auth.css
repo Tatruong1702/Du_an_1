@@ -1,0 +1,64 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #fef8e6;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* form login to hơn */
+.form-box {
+  background: #ffffff;
+  padding: 50px;
+  width: 100%;
+  max-width: 500px; /* form to hơn */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 10;
+  position: relative;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* nút đăng nhập màu nổi bật */
+button {
+  background-color: #ff7f50; /* màu cam nổi bật */
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+/* lá */
+.leaf {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  top: -50px;
+  opacity: 0.8;
+  animation-name: fall;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: 1;
+}
+
+/* keyframes bay chéo */
+@keyframes fall {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  100% {
+    transform: translateX(var(--x-move)) translateY(100vh) rotate(360deg);
+    opacity: 0.5;
+  }
+}

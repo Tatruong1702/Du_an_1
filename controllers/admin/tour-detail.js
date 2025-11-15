@@ -16,6 +16,7 @@ const getTourById = async () => {
     document.querySelector('#tourLongDesc').textContent = data.short_description;
     document.querySelector('#tour_code').textContent = data.tour_code;
 
+
     const depRes = await fetch(`http://localhost:3000/departures?tourId=${id}`);
     const Departures = await depRes.json();
 
@@ -36,5 +37,5 @@ const getTourById = async () => {
 }
 
 getTourById();
-console.log('Hello');
+
 
