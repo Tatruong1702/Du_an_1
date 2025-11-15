@@ -222,16 +222,22 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "Admin",
       "password": "123456",
       "role": "admin",
-      "avatar": "img/admin.jpg"
+      "email": "admin@gmail.com",
+      "avatar": "img/admin.jpg",
+      "phone": "0383742741",
+      "genre": "Ẩn danh",
+      "location": ""
+      
     },
     {
       "id": "2",
       "username": "hdv_lan",
       "password": "123456",
-      "role": "hdv",
+      "role": "user",
+      "email": "user01@gmail.com",
       "avatar": "img/hdv_lan.jpg"
     }
   ]
