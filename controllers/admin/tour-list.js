@@ -1,3 +1,10 @@
+const user = JSON.parse(localStorage.getItem('currentUser'));
+if(!user || user.role !== 'admin'){
+    alert("Bạn không có quyền truy cập trang admin!");
+    window.location.href = 'tour-list.html';
+}
+
+
 fetch("http://localhost:3000/tours")
   .then(res => res.json())
   .then(tours => {

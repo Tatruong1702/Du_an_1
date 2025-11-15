@@ -221,17 +221,6 @@
   ],
   "users": [
     {
-      "id": "1",
-      "username": "Admin",
-      "password": "123456",
-      "role": "admin",
-      "email": "admin@gmail.com",
-      "avatar": "img/admin.jpg",
-      "phone": "0383742741",
-      "genre": "Ẩn danh",
-      "location": ""
-    },
-    {
       "id": "2",
       "username": "hdv_lan",
       "password": "123456",
@@ -248,6 +237,13 @@
       "password": "2b1fac75092be8285de48682e7d8e3de38e6574ce10d213ab4a9bcce25fc8285",
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$JC9N.MpwJR5o.EJBcO0pUuGjsIo6ZZJGw7iEKGZnuJtD32ZDzG24W",
+      "username": "Admin",
+      "role": "admin",
+      "id": "FjLhLYJ"
     }
   ]
 }
