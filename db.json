@@ -230,7 +230,6 @@
       "phone": "0383742741",
       "genre": "Ẩn danh",
       "location": ""
-      
     },
     {
       "id": "2",
@@ -239,6 +238,16 @@
       "role": "user",
       "email": "user01@gmail.com",
       "avatar": "img/hdv_lan.jpg"
+    },
+    {
+      "id": "73cb",
+      "username": "daoducanh",
+      "email": "ddao51531@gmail.com",
+      "phone": "0969778516",
+      "genre": "Nam",
+      "password": "2b1fac75092be8285de48682e7d8e3de38e6574ce10d213ab4a9bcce25fc8285",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
     }
   ]
 }
