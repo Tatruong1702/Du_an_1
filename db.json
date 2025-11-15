@@ -107,8 +107,10 @@
     {
       "id": "1",
       "name": "Trần Minh Hùng",
+      "sex": "Nam",
+      "email": "tranminh354@gmail.com",
       "birth": "1989-04-12",
-      "avatar": "img/hdv1.jpg",
+      "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
       "phone": "0901234567",
       "certificate": "HDV Quốc tế",
       "languages": [
@@ -124,8 +126,10 @@
     {
       "id": "2",
       "name": "Nguyễn Thị Lan",
+      "sex": "Nữ",
+      "email": "thilan344@gmail.com",
       "birth": "1992-05-20",
-      "avatar": "img/hdv2.jpg",
+      "avatar": "https://i.pinimg.com/1200x/d6/86/13/d68613bbfa13dc302727bb7403325f78.jpg",
       "phone": "0902345678",
       "certificate": "HDV Nội địa",
       "languages": [
