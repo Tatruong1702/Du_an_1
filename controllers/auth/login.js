@@ -164,9 +164,9 @@ document.getElementById('forgot-cancel').addEventListener('click', () => {
   document.querySelector('.tab[data-tab="login"]').click();
 });
 
-// ====================================================
+
 // REMEMBER IDENTIFIER
-// ====================================================
+
 window.addEventListener('load', () => {
   const saved = localStorage.getItem('auth-identifier');
   if (saved) document.getElementById('login-email').value = saved;
