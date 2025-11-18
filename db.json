@@ -33,7 +33,7 @@
       },
       "main_destination": "Hồ Chí Minh",
       "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
-      "max-people": 30
+      "max_people": 30
     },
     {
       "id": "2",
@@ -41,6 +41,7 @@
       "name": "Du lịch Nhật Bản",
       "tour_code": "Q8R2LSXA",
       "main_destination": "Osaka",
+      "max_people": 45,
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
@@ -89,107 +90,18 @@
         "transport": "Máy bay Boing 174"
       },
       "schedule": []
-    },
-    {
-      "type": "Nội địa",
-      "name": "Heron sand",
-      "tour_code": "dcdc",
-      "main_destination": "cdcd",
-      "images": [
-        "cdcd"
-      ],
-      "short_description": "cdcd",
-      "price": {
-        "adult": 212,
-        "child": 33000
-      },
-      "policy": {
-        "cancel": "dcd",
-        "refund": "cdc"
-      },
-      "schedule": [
-        {
-          "day": 2,
-          "activity": "đi ngủ",
-          "location": ""
-        }
-      ],
-      "id": "4"
-    },
-    {
-      "type": "Theo yêu cầu",
-      "name": "dcdc",
-      "tour_code": "cdcd",
-      "main_destination": "cdcd",
-      "images": [
-        "ccd"
-      ],
-      "short_description": "cdcdc",
-      "price": {
-        "adult": 2233,
-        "child": 344
-      },
-      "policy": {
-        "cancel": "cdc",
-        "refund": "cdc"
-      },
-      "schedule": [
-        {
-          "day": 1,
-          "activity": "đi ngủ",
-          "location": ""
-        },
-        {
-          "day": 2,
-          "activity": "đi ỉe",
-          "location": ""
-        }
-      ],
-      "id": "5"
-    },
-    {
-      "type": "Nội địa",
-      "name": "Heron sand",
-      "tour_code": "dcdc",
-      "main_destination": "Tân thế giới",
-      "images": [
-        "https://i.pinimg.com/1200x/b7/b7/8f/b7b78fc9db526f797f3995d03759f5df.jpg"
-      ],
-      "short_description": "",
-      "price": {
-        "adult": 123,
-        "child": 789
-      },
-      "policy": {
-        "cancel": "",
-        "refund": ""
-      },
-      "schedule": [
-        {
-          "day": 1,
-          "activity": "vvv",
-          "location": ""
-        },
-        {
-          "day": 2,
-          "activity": "ccc",
-          "location": ""
-        }
-      ],
-      "id": "6"
     }
   ],
   "bookings": [
     {
       "id": "1",
       "tourId": 1,
-      "customerName": "Nguyễn Văn A",
+      "userId": 2,
+      "travelType": "Gia đình",
       "quantity": 2,
       "type": "khach_le",
-      "date": "2025-11-10",
-      "contact": "0901234567",
       "note": "Yêu cầu phòng đôi, ăn chay",
-      "status": "cho_xac_nhan"
+      "status": "Đã cọc"
     }
   ],
   "staffs": [
@@ -253,34 +165,6 @@
       ]
     }
   ],
-  "customers": [
-    {
-      "id": "1",
-      "bookingId": 1,
-      "name": "Nguyễn Văn A",
-      "gender": "Nam",
-      "birth": "1990-01-01",
-      "identity": "0123456789",
-      "paymentStatus": "Đã cọc",
-      "specialRequest": "Ăn chay",
-      "checkin": false,
-      "room": "201A",
-      "avatar": "img/customer1.jpg"
-    },
-    {
-      "id": "2",
-      "bookingId": 1,
-      "name": "Nguyễn Văn B",
-      "gender": "Nam",
-      "birth": "1991-02-03",
-      "identity": "9876543210",
-      "paymentStatus": "Chưa cọc",
-      "specialRequest": "",
-      "checkin": false,
-      "room": "202B",
-      "avatar": "img/customer2.jpg"
-    }
-  ],
   "notes": [
     {
       "id": "1",
@@ -314,29 +198,24 @@
   ],
   "users": [
     {
-      "id": "2",
-      "username": "hdv_lan",
-      "password": "123456",
-      "role": "user",
-      "email": "user01@gmail.com",
-      "avatar": "img/hdv_lan.jpg"
-    },
-    {
-      "id": "73cb",
-      "username": "daoducanh",
-      "email": "ddao51531@gmail.com",
-      "phone": "0969778516",
-      "genre": "Nam",
-      "password": "2b1fac75092be8285de48682e7d8e3de38e6574ce10d213ab4a9bcce25fc8285",
-      "role": "user",
-      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
-    },
-    {
       "email": "admin@gmail.com",
-      "password": "$2a$10$JC9N.MpwJR5o.EJBcO0pUuGjsIo6ZZJGw7iEKGZnuJtD32ZDzG24W",
+      "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
       "username": "Admin",
+      "phone": "0912345678",
+      "genre": "Ẩn danh",
       "role": "admin",
-      "id": "FjLhLYJ"
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": 1
+    },
+    {
+      "email": "tavantruog1702@gamil.com",
+      "password": "$2a$10$5UTkgAyRGwXhA66DQtBFm.yG/mJPafs/EcQ2CakX9tR0PhoTtOiVa",
+      "username": "Tạ Văn Trường",
+      "phone": "0362422418",
+      "genre": "Nam",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": 2
     }
   ]
 }

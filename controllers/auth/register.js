@@ -70,9 +70,9 @@ form.addEventListener("submit", async (e) => {
     });
 
     if (!res.ok) throw new Error("Đăng ký thất bại!");
+    window.location.href = "login.html";
 
     alert("Đăng ký thành công!");
-    window.location.href = "login.html";
 
   } catch (err) {
     console.error(err);
