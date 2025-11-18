@@ -46,6 +46,7 @@
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
       "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
+      "max_people": 30,
       "price": {
         "adult": 7500000,
         "child": 4200000
@@ -76,6 +77,7 @@
         "https://ik.imagekit.io/tvlk/blog/2023/07/thap-eiffel-1-1024x678.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
       ],
       "short_description": "Tháp Eiffel là biểu tượng nổi tiếng của Paris, Pháp, với kiến trúc thép cao vút và tầm nhìn toàn thành phố.\n",
+      "max_people": 30,
       "price": {
         "adult": 12000000,
         "child": 8700000
@@ -199,6 +201,7 @@
   "users": [
     {
       "email": "admin@gmail.com",
+<<<<<<< HEAD
       "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
       "username": "Admin",
       "phone": "0912345678",
@@ -210,12 +213,39 @@
     {
       "email": "tavantruog1702@gamil.com",
       "password": "$2a$10$5UTkgAyRGwXhA66DQtBFm.yG/mJPafs/EcQ2CakX9tR0PhoTtOiVa",
+=======
+      "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
+      "username": "Admin",
+      "phone": "0123456789",
+      "genre": "Nữ",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "G31noYO"
+    },
+    {
+      "email": "tavantruog1702@gmail.com",
+      "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
       "username": "Tạ Văn Trường",
       "phone": "0362422418",
       "genre": "Nam",
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+<<<<<<< HEAD
       "id": 2
+=======
+      "id": "2fdsVEe"
+    },
+    {
+      "email": "ddao51531@gmail.com",
+      "password": "$2a$10$b3qvXbmgAJ38kp1qE5BXZuNqUX5fDWAGRVtPo3ZmFIGiQf.xdrzRG",
+      "username": "Đào Đức Anh",
+      "phone": "0969778516",
+      "genre": "Nam",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "CjPp9fs"
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
     }
   ]
 }
