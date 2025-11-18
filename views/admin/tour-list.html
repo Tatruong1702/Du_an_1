@@ -29,11 +29,14 @@
       <nav>
 
         <div class="nav-item"><i class="bi bi-house-door-fill"></i><a href="/views/home.html">Trang quản trị</a></div>
-        <div class="nav-item active"><i class="bi bi-airplane"></i><a href="/views/admin/tour-list.html"> Quản lý Tour</a></div>
+        <div class="nav-item active"><i class="bi bi-airplane"></i><a href="/views/admin/tour-list.html"> Quản lý
+            Tour</a></div>
         <div class="nav-item"><i class="bi bi-calendar-check"></i><a href=""> Đợt khởi hành</a></div>
         <div class="nav-item"><i class="bi bi-bookmark-check"></i><a href=""> Đặt chỗ</a></div>
-        <div class="nav-item"><i class="bi bi-people-fill"></i><a href="/views/admin/customer-list.html"> Khách hàng</a></div>
-        <div class="nav-item"><i class="bi bi-person-badge"></i><a href="/views/admin/guide-list.html">Hướng dẫn viên</a></div>
+        <div class="nav-item"><i class="bi bi-people-fill"></i><a href="/views/admin/customer-list.html"> Khách hàng</a>
+        </div>
+        <div class="nav-item"><i class="bi bi-person-badge"></i><a href="/views/admin/guide-list.html">Hướng dẫn
+            viên</a></div>
         <div class="nav-item"><i class="bi bi-shield-lock-fill"></i><a href="#">Bảo mật</a></div>
         <div class="nav-item"><i class="bi bi-gear-fill"></i><a href="#">Cài đặt nâng cao</a></div>
 
@@ -66,11 +69,11 @@
         </div>
         <div class="card-panel">
           <h5>Lọc</h5>
-            <select id="filterType" class="form-select mt-3">
-    <option value="">-- Lọc theo loại tour --</option>
-    <option value="Nội địa">Nội địa</option>
-    <option value="Quốc tế">Quốc tế</option>
-  </select>
+          <select id="filterType" class="form-select mt-3">
+            <option value="">-- Lọc theo loại tour --</option>
+            <option value="Nội địa">Nội địa</option>
+            <option value="Quốc tế">Quốc tế</option>
+          </select>
         </div>
       </div>
 
@@ -144,12 +147,18 @@
               </div>
             </div>
 
+            <div class="col-md-4 mt-3">
+              <label class="form-label">Số người tối đa</label>
+              <input type="number" class="form-control" name="max_people" placeholder="VD: 20">
+            </div>
+
             <div class="mb-3">
               <label class="form-label">Mô tả ngắn</label>
               <textarea class="form-control" name="short_description" rows="2"
                 placeholder="Nhập mô tả tour..."></textarea>
             </div>
 
+            
             <!-- GIÁ TIỀN -->
             <h6
               style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">
@@ -182,7 +191,6 @@
               </div>
             </div>
 
-
             <!-- LỊCH TRÌNH -->
             <h6
               style="color:#3b2a0a; font-weight:700; margin-bottom:15px; margin-top:25px; border-left:5px solid #f5c542; padding-left:10px;">
@@ -207,6 +215,7 @@
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
 
             <button type="button" class="btn btn-sm btn-info" id="addScheduleBtn" style="margin-bottom:20px;">+ Thêm ngày</button>
             <div class="modal-footer">
@@ -218,6 +227,19 @@
         </div>
           </form>
         </div>
+=======
+            <button type="button" class="btn btn-sm btn-info" id="addScheduleBtn" style="margin-bottom:20px;">+ Thêm
+              ngày</button>
+            <div class="modal-footer">
+
+
+              <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Hủy</button>
+              <button type="submit" class="btn btn-save" id="saveTourBtn">Lưu Tour</button>
+            </div>
+          </form>
+        </div>
+
+>>>>>>> 4bffcba5275b557cafaac709d58de2af326b5b01
       </div>
     </div>
   </div>
@@ -262,6 +284,14 @@
 
   <!-- APP JS -->
   <script src="/controllers/admin/tour-list.js"></script>
+  <script>
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('Bạn cần đăng nhập trước!');
+      window.location.href = 'login.html';
+    }
+  </script>
+
 </body>
 
 </html>

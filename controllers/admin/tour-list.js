@@ -1,3 +1,10 @@
+const user = JSON.parse(localStorage.getItem('currentUser'));
+if(!user || user.role !== 'admin'){
+    alert("Bạn không có quyền truy cập trang admin!");
+    window.location.href = 'tour-list.html';
+}
+
+
 fetch("http://localhost:3000/tours")
   .then(res => res.json())
   .then(tours => {
@@ -204,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const inputPriceChild = form.querySelector('input[name="price_child"]');
       const inputPolicyCancel = form.querySelector('textarea[name="policy_cancel"]');
       const inputPolicyRefund = form.querySelector('textarea[name="policy_refund"]');
+      const inputMaxPeople = form.querySelector('input[name="max_people"]');
 
       if (!inputType.value.trim()) {
         alert("Vui lòng chọn loại tour");
@@ -230,13 +238,18 @@ document.addEventListener('DOMContentLoaded', () => {
         inputPriceChild.focus();
         return;
       }
+      if (!inputMaxPeople.value.trim()) {
+        alert("Vui lòng nhập số hành khách lớn nhất");
+        inputMaxPeople.focus();
+        return;
+      }
 
       const scheduleItems = document.querySelectorAll('.schedule-item');
       const schedule = Array.from(scheduleItems).map(item => ({
-        day: parseInt(item.querySelector('.schedule-day').value) || 0,
+        day: parseInt(item.querySelector('.schedule-day').value) || 1,
         activity: item.querySelector('.schedule-activity').value,
         location: item.dataset.location || ''
-      })).filter(s => s.day > 0 && s.activity.trim());
+      })).filter(s => s.day > 0); // chỉ loại bỏ day <= 0
 
       const data = {
         type: inputType.value,
