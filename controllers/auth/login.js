@@ -1,3 +1,12 @@
+// Hàm hash SHA-256 password (tương tự register.js)
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 // Hàm thực hiện đăng nhập
 const login = async (data) => {
   // Xóa token và thông tin user cũ (nếu có)
@@ -5,13 +14,20 @@ const login = async (data) => {
   localStorage.removeItem('currentUser');
 
   try {
-    // Gửi yêu cầu đăng nhập tới server
+    // Hash password trước khi gửi (phải khớp với hash lưu trong register)
+    const hashedPassword = await hashPassword(data.password);
+    const loginData = {
+      email: data.email,
+      password: hashedPassword
+    };
+
+    // Gửi yêu cầu đăng nhập tới server với password đã hash
     const res = await fetch(`http://localhost:3000/login`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(loginData)
     });
 
     const respon = await res.json();
