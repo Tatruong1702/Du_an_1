@@ -32,7 +32,8 @@
         "transport": "Xe 45 chỗ du lịch"
       },
       "main_destination": "Hồ Chí Minh",
-      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo"
+      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
+      "max-people": 30
     },
     {
       "id": "2",
@@ -88,6 +89,94 @@
         "transport": "Máy bay Boing 174"
       },
       "schedule": []
+    },
+    {
+      "type": "Nội địa",
+      "name": "Heron sand",
+      "tour_code": "dcdc",
+      "main_destination": "cdcd",
+      "images": [
+        "cdcd"
+      ],
+      "short_description": "cdcd",
+      "price": {
+        "adult": 212,
+        "child": 33000
+      },
+      "policy": {
+        "cancel": "dcd",
+        "refund": "cdc"
+      },
+      "schedule": [
+        {
+          "day": 2,
+          "activity": "đi ngủ",
+          "location": ""
+        }
+      ],
+      "id": "4"
+    },
+    {
+      "type": "Theo yêu cầu",
+      "name": "dcdc",
+      "tour_code": "cdcd",
+      "main_destination": "cdcd",
+      "images": [
+        "ccd"
+      ],
+      "short_description": "cdcdc",
+      "price": {
+        "adult": 2233,
+        "child": 344
+      },
+      "policy": {
+        "cancel": "cdc",
+        "refund": "cdc"
+      },
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "đi ngủ",
+          "location": ""
+        },
+        {
+          "day": 2,
+          "activity": "đi ỉe",
+          "location": ""
+        }
+      ],
+      "id": "5"
+    },
+    {
+      "type": "Nội địa",
+      "name": "Heron sand",
+      "tour_code": "dcdc",
+      "main_destination": "Tân thế giới",
+      "images": [
+        "https://i.pinimg.com/1200x/b7/b7/8f/b7b78fc9db526f797f3995d03759f5df.jpg"
+      ],
+      "short_description": "",
+      "price": {
+        "adult": 123,
+        "child": 789
+      },
+      "policy": {
+        "cancel": "",
+        "refund": ""
+      },
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "vvv",
+          "location": ""
+        },
+        {
+          "day": 2,
+          "activity": "ccc",
+          "location": ""
+        }
+      ],
+      "id": "6"
     }
   ],
   "bookings": [
