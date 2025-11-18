@@ -33,7 +33,7 @@
       },
       "main_destination": "Hồ Chí Minh",
       "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
-      "max-people": 30
+      "max_people": 30
     },
     {
       "id": "2",
@@ -45,6 +45,7 @@
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
       "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
+      "max_people": 30,
       "price": {
         "adult": 7500000,
         "child": 4200000
@@ -75,6 +76,7 @@
         "https://ik.imagekit.io/tvlk/blog/2023/07/thap-eiffel-1-1024x678.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
       ],
       "short_description": "Tháp Eiffel là biểu tượng nổi tiếng của Paris, Pháp, với kiến trúc thép cao vút và tầm nhìn toàn thành phố.\n",
+      "max_people": 30,
       "price": {
         "adult": 12000000,
         "child": 8700000
