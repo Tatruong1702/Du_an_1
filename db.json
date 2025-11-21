@@ -41,12 +41,11 @@
       "name": "Du lịch Nhật Bản",
       "tour_code": "Q8R2LSXA",
       "main_destination": "Osaka",
-      "max_people": 45,
+      "max_people": 30,
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
       "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
-      "max_people": 30,
       "price": {
         "adult": 7500000,
         "child": 4200000
@@ -97,34 +96,39 @@
   "bookings": [
     {
       "id": "1",
-      "tourId": 1,
-      "userId": 2,
-      "travelType": "Gia đình",
+      "tourId": "1",
+      "email": "khachhang@gmail.com",
+      "phone": "0909123456",
       "quantity": 2,
-      "type": "khach_le",
-      "note": "Yêu cầu phòng đôi, ăn chay",
-      "status": "Đã cọc"
+      "departureDate": "2025-11-20",
+      "status": "Đã cọc",
+      "travelType": "Gia đình",
+      "type": "Khách lẻ"
+    },
+    {
+      "id": "2",
+      "tourId": "1",
+      "email": "nguyen@gmail.com",
+      "phone": "0987654321",
+      "quantity": 3,
+      "departureDate": "2025-11-20",
+      "status": "Hoàn thành",
+      "travelType": "Cá nhân"
     }
   ],
   "staffs": [
     {
-      "id": "1",
       "name": "Trần Minh Hùng",
       "sex": "Nam",
       "email": "tranminh354@gmail.com",
-      "birth": "1989-04-12",
-      "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
       "phone": "0901234567",
-      "certificate": "HDV Quốc tế",
+      "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
+      "type": "quoc_te",
       "languages": [
         "Anh",
         "Nhật"
       ],
-      "experience": "10 năm",
-      "health": "Tốt",
-      "type": "quoc_te",
-      "toursLed": 120,
-      "rating": 4.8
+      "id": "1"
     },
     {
       "id": "2",
@@ -144,6 +148,32 @@
       "type": "noi_dia",
       "toursLed": 50,
       "rating": 4.6
+    },
+    {
+      "name": "Nguyễn Văn Đức Anh",
+      "sex": "Nam",
+      "email": "nvducanh@gmail.com",
+      "phone": "0987654321",
+      "avatar": "https://jbagy.me/wp-content/uploads/2025/03/Hinh-anh-avatar-nam-cute-2.jpg",
+      "type": "quoc_te",
+      "languages": [
+        "Hàn",
+        "Đức"
+      ],
+      "id": "WBeUkHX"
+    },
+    {
+      "name": "Trần Tuấn A",
+      "sex": "Nữ",
+      "email": "admin@gmail.com",
+      "phone": "0901234567",
+      "avatar": "https://jbagy.me/wp-content/uploads/2025/03/Hinh-anh-avatar-nam-cute-2.jpg",
+      "type": "noi_dia",
+      "languages": [
+        "Hàn",
+        "Đức"
+      ],
+      "id": "7c9wlnl"
     }
   ],
   "departures": [
@@ -201,7 +231,6 @@
   "users": [
     {
       "email": "admin@gmail.com",
-<<<<<<< HEAD
       "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
       "username": "Admin",
       "phone": "0912345678",
@@ -212,8 +241,6 @@
     },
     {
       "email": "tavantruog1702@gamil.com",
-      "password": "$2a$10$5UTkgAyRGwXhA66DQtBFm.yG/mJPafs/EcQ2CakX9tR0PhoTtOiVa",
-=======
       "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
       "username": "Admin",
       "phone": "0123456789",
@@ -225,15 +252,11 @@
     {
       "email": "tavantruog1702@gmail.com",
       "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
->>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
       "username": "Tạ Văn Trường",
       "phone": "0362422418",
       "genre": "Nam",
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
-<<<<<<< HEAD
-      "id": 2
-=======
       "id": "2fdsVEe"
     },
     {
@@ -245,7 +268,6 @@
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
       "id": "CjPp9fs"
->>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
     }
   ]
 }
