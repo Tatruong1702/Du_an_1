@@ -49,9 +49,6 @@ const renderGuides = (list) => {
         </td>
         <td>${languages}</td>
         <td>
-          <button class="btn btn-sm btn-warning me-1" onclick="openEditModal('${g.id}')" title="Sửa">
-            <i class="bi bi-pencil"></i>
-          </button>
           <button class="btn btn-sm btn-danger" onclick="deleteGuide('${g.id}', '${g.name}')" title="Xóa">
             <i class="bi bi-trash"></i>
           </button>
@@ -64,23 +61,23 @@ const renderGuides = (list) => {
 }
 
 // ========== MODAL SỬA ==========
-window.openEditModal = (id) => {
-  const guide = guidesData.find(g => g.id === id);
-  if (!guide) return;
+// window.openEditModal = (id) => {
+//   const guide = guidesData.find(g => g.id === id);
+//   if (!guide) return;
 
-  editingId = id;
+//   editingId = id;
 
-  document.getElementById('guideName').value = guide.name;
-  document.getElementById('guideSex').value = guide.sex;
-  document.getElementById('guideEmail').value = guide.email;
-  document.getElementById('guidePhone').value = guide.phone || '';
-  document.getElementById('guideAvatar').value = guide.avatar || '';
-  document.getElementById('guideType').value = guide.type || 'noi_dia';
-  document.getElementById('guideLanguages').value = guide.languages?.join(', ') || '';
+//   document.getElementById('guideName').value = guide.name;
+//   document.getElementById('guideSex').value = guide.sex;
+//   document.getElementById('guideEmail').value = guide.email;
+//   document.getElementById('guidePhone').value = guide.phone || '';
+//   document.getElementById('guideAvatar').value = guide.avatar || '';
+//   document.getElementById('guideType').value = guide.type || 'noi_dia';
+//   document.getElementById('guideLanguages').value = guide.languages?.join(', ') || '';
 
-  document.getElementById('guideModalTitle').textContent = 'Sửa hướng dẫn viên';
-  new bootstrap.Modal(document.getElementById('guideModal')).show();
-}
+//   document.getElementById('guideModalTitle').textContent = 'Sửa hướng dẫn viên';
+//   new bootstrap.Modal(document.getElementById('guideModal')).show();
+// }
 
 // ========== XÓA HDV ==========
 window.deleteGuide = async (id, name) => {
