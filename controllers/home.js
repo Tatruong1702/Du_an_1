@@ -1,6 +1,3 @@
-
-
-
 // Lấy nút admin
 const adminBtn = document.getElementById('adminButton');
 
