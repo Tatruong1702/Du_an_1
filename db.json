@@ -194,10 +194,13 @@
   ],
   "notes": [
     {
-      "id": "1",
-      "customerId": 1,
-      "type": "an_chay",
-      "content": "Khách ăn chay trường – tránh món thịt, hải sản"
+      "tour_id": 1,
+      "tour_name": "Đà Lạt 3N2Đ",
+      "customer_name": "Nguyễn Văn A",
+      "note_type": "meal",
+      "special_notes": "Khách dị ứng hải sản",
+      "start_date": "2025-12-05",
+      "phone": "0909000000"
     }
   ],
   "revenues": [
