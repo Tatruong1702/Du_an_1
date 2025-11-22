@@ -41,11 +41,11 @@
       "name": "Du lịch Nhật Bản",
       "tour_code": "Q8R2LSXA",
       "main_destination": "Osaka",
+      "max_people": 45,
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
       "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
-      "max_people": 30,
       "price": {
         "adult": 7500000,
         "child": 4200000
@@ -166,26 +166,40 @@
       ]
     }
   ],
-
+  "customers": [
+    {
+      "id": "1",
+      "bookingId": 1,
+      "name": "Nguyễn Văn A",
+      "gender": "Nam",
+      "birth": "1990-01-01",
+      "identity": "0123456789",
+      "paymentStatus": "Đã cọc",
+      "specialRequest": "Ăn chay",
+      "checkin": false,
+      "room": "201A",
+      "avatar": "img/customer1.jpg"
+    },
+    {
+      "id": "2",
+      "bookingId": 1,
+      "name": "Nguyễn Văn B",
+      "gender": "Nam",
+      "birth": "1991-02-03",
+      "identity": "9876543210",
+      "paymentStatus": "Chưa cọc",
+      "specialRequest": "",
+      "checkin": false,
+      "room": "202B",
+      "avatar": "img/customer2.jpg"
+    }
+  ],
   "notes": [
     {
-      "tour_id": 1,
-      "tour_name": "Đà Lạt 3N2Đ",
-      "customer_name": "Nguyễn Văn A",
-      "note_type": "meal",
-      "special_notes": "Khách dị ứng hải sản",
-      "start_date": "2025-12-05",
-      "phone": "0123456789"
-    },
-
-    {
-      "tour_id": 2,
-      "tour_name": "Hà Nội 4N3Đ",
-      "customer_name": "Trần Thị B",
-      "note_type": "hotel",
-      "special_notes": "Yêu cầu phòng có view đẹp",
-      "start_date": "2025-12-10",
-      "phone": "0987654321"
+      "id": "1",
+      "customerId": 1,
+      "type": "an_chay",
+      "content": "Khách ăn chay trường – tránh món thịt, hải sản"
     }
   ],
 
@@ -214,6 +228,26 @@
   ],
   "users": [
     {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
+      "username": "Admin",
+      "phone": "0123456789",
+      "genre": "Nữ",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "G31noYO"
+    },
+    {
+      "email": "tavantruog1702@gmail.com",
+      "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+      "username": "Tạ Văn Trường",
+      "phone": "0362422418",
+      "genre": "Nam",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "2fdsVEe"
+    },
+    {
       "email": "ddao51531@gmail.com",
       "password": "$2a$10$b3qvXbmgAJ38kp1qE5BXZuNqUX5fDWAGRVtPo3ZmFIGiQf.xdrzRG",
       "username": "Đào Đức Anh",
@@ -222,6 +256,7 @@
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
       "id": "CjPp9fs"
+
     }
   ]
 }
