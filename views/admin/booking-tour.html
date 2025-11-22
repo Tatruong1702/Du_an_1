@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quản lý Tour</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- ✅ THÊM LEAFLET CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link rel="stylesheet" href="/assets/list.css">
+</head>
+
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">
+        <div
+          style="width:44px;height:44px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#3b2a0a;font-weight:700">
+          AD</div>
+        <div>
+          <div>AdminPanel</div>
+          <small style="opacity:.8">v1.0</small>
+        </div>
+      </div>
+
+      <nav>
+
+        <div class="nav-item"><i class="bi bi-house-door-fill"></i><a href="/views/admin/dashboard.html">Trang quản trị</a></div>
+        <div class="nav-item"><i class="bi bi-airplane"></i><a href="/views/admin/tour-list.html"> Quản lý Tour</a></div>
+        <div class="nav-item"><i class="bi bi-calendar-check"></i><a href=""> Đợt khởi hành</a></div>
+        <div class="nav-item active"><i class="bi bi-bookmark-check"></i><a href=""> Đặt chỗ</a></div>
+        <div class="nav-item"><i class="bi bi-people-fill"></i><a href="/views/admin/customer-list.html"> Khách hàng</a></div>
+        <div class="nav-item"><i class="bi bi-person-badge"></i><a href="/views/admin/guide-list.html">Hướng dẫn viên</a></div>
+        <div class="nav-item"><i class="bi bi-shield-lock-fill"></i><a href="#">Bảo mật</a></div>
+        <div class="nav-item"><i class="bi bi-gear-fill"></i><a href="#">Cài đặt nâng cao</a></div>
+
+      </nav>
+
+      <div style="margin-top:auto; font-size:13px; opacity:.9">
+        <div>Người dùng: <strong>Admin</strong></div>
+        <div style="margin-top:6px">Email: <small>tatruong@example.com</small></div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <div class="topbar">
+        <button class="btn btn-sm btn-outline-secondary d-md-none" id="btnToggle"><i class="bi bi-list"></i></button>
+        <div class="me-2">VI</div>
+        <div class="btn btn-light btn-sm"><i class="bi bi-bell"></i></div>
+        <div class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center"
+          style="width:50px;height:50px;font-weight:600">A</div>
+      </div>
+
+      <h3 style="margin-bottom:22px; color:#4a3512;">Số lượng người đăng kí Tour</h3>
+
+
+
+      <div style="margin-top:22px" class="card-panel">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Loại Tour</th>
+              <th>Tên Tour</th>
+              <th>Điểm đến</th>
+              <th>Hình ảnh</th>
+              <th>Số lượng</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody id="tourTableBody">
+            <tr>
+              <td colspan="8" style="text-align:center;color:#999;">Đang tải dữ liệu...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ LEAFLET JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <!-- APP JS -->
+  <script src="/controllers/admin/booking-tour.js"></script>
+</body>
+
+</html>
