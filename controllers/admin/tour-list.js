@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem('currentUser'));
 if(!user || user.role !== 'admin'){
     alert("Bạn không có quyền truy cập trang admin!");
-    window.location.href = 'tour-list.html';
+    window.location.href = 'login.html';
 }
 
 
