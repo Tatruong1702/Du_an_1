@@ -41,11 +41,19 @@
       "name": "Du lịch Nhật Bản",
       "tour_code": "Q8R2LSXA",
       "main_destination": "Osaka",
+<<<<<<< HEAD
       "max_people": 30,
+=======
+      "max_people": 45,
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
       "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
+<<<<<<< HEAD
+=======
+      "max_people": 30,
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "price": {
         "adult": 7500000,
         "child": 4200000
@@ -96,6 +104,7 @@
   "bookings": [
     {
       "id": "1",
+<<<<<<< HEAD
       "tourId": "1",
       "email": "khachhang@gmail.com",
       "phone": "0909123456",
@@ -114,21 +123,49 @@
       "departureDate": "2025-11-20",
       "status": "Hoàn thành",
       "travelType": "Cá nhân"
+=======
+      "tourId": 1,
+      "userId": 2,
+      "travelType": "Gia đình",
+      "quantity": 2,
+      "type": "khach_le",
+      "note": "Yêu cầu phòng đôi, ăn chay",
+      "status": "Đã cọc"
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
     }
   ],
   "staffs": [
     {
+<<<<<<< HEAD
       "name": "Trần Minh Hùng",
       "sex": "Nam",
       "email": "tranminh354@gmail.com",
       "phone": "0901234567",
       "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
       "type": "quoc_te",
+=======
+      "id": "1",
+      "name": "Trần Minh Hùng",
+      "sex": "Nam",
+      "email": "tranminh354@gmail.com",
+      "birth": "1989-04-12",
+      "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
+      "phone": "0901234567",
+      "certificate": "HDV Quốc tế",
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "languages": [
         "Anh",
         "Nhật"
       ],
+<<<<<<< HEAD
       "id": "1"
+=======
+      "experience": "10 năm",
+      "health": "Tốt",
+      "type": "quoc_te",
+      "toursLed": 120,
+      "rating": 4.8
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
     },
     {
       "id": "2",
@@ -148,6 +185,7 @@
       "type": "noi_dia",
       "toursLed": 50,
       "rating": 4.6
+<<<<<<< HEAD
     },
     {
       "name": "Nguyễn Văn Đức Anh",
@@ -174,6 +212,8 @@
         "Đức"
       ],
       "id": "7c9wlnl"
+=======
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
     }
   ],
   "departures": [
@@ -231,6 +271,12 @@
   "users": [
     {
       "email": "admin@gmail.com",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
       "username": "Admin",
       "phone": "0912345678",
@@ -241,6 +287,12 @@
     },
     {
       "email": "tavantruog1702@gamil.com",
+<<<<<<< HEAD
+=======
+      "password": "$2a$10$5UTkgAyRGwXhA66DQtBFm.yG/mJPafs/EcQ2CakX9tR0PhoTtOiVa",
+=======
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
       "username": "Admin",
       "phone": "0123456789",
@@ -252,11 +304,27 @@
     {
       "email": "tavantruog1702@gmail.com",
       "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "username": "Tạ Văn Trường",
       "phone": "0362422418",
       "genre": "Nam",
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "id": 2
+=======
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       "id": "2fdsVEe"
     },
     {
@@ -268,6 +336,13 @@
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
       "id": "CjPp9fs"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
     }
   ]
 }

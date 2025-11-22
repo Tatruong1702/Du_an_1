@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
 // Lấy nút admin
 const adminBtn = document.getElementById('adminButton');
 
