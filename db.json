@@ -201,6 +201,22 @@
   "users": [
     {
       "email": "admin@gmail.com",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
+      "username": "Admin",
+      "phone": "0912345678",
+      "genre": "Ẩn danh",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": 1
+    },
+    {
+      "email": "tavantruog1702@gamil.com",
+      "password": "$2a$10$5UTkgAyRGwXhA66DQtBFm.yG/mJPafs/EcQ2CakX9tR0PhoTtOiVa",
+=======
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
       "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
       "username": "Admin",
       "phone": "0123456789",
@@ -212,11 +228,21 @@
     {
       "email": "tavantruog1702@gmail.com",
       "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+<<<<<<< HEAD
+=======
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
       "username": "Tạ Văn Trường",
       "phone": "0362422418",
       "genre": "Nam",
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "id": 2
+=======
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
       "id": "2fdsVEe"
     },
     {
@@ -228,6 +254,10 @@
       "role": "user",
       "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
       "id": "CjPp9fs"
+<<<<<<< HEAD
+=======
+>>>>>>> 4fce07b3132e694201b0bf31b1d2e071223680ea
+>>>>>>> 0b78016db5404fe4b931a23c028fe82632b267d0
     }
   ]
 }
