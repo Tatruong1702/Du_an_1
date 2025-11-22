@@ -1,0 +1,273 @@
+{
+  "tours": [
+    {
+      "id": "1",
+      "type": "Nội địa",
+      "name": "Tour Miền Trung 5N4Đ",
+      "tour_code": "ZK9T4MJD",
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An"
+        },
+        {
+          "day": 2,
+          "activity": "Cù Lao Chàm – Biển Mỹ Khê"
+        }
+      ],
+      "images": [
+        "https://statictuoitre.mediacdn.vn/thumb_w/640/2017/7-1512755474943.jpg"
+      ],
+      "price": {
+        "adult": 5500000,
+        "child": 3000000
+      },
+      "policy": {
+        "cancel": "Hủy trước 5 ngày hoàn 80%",
+        "refund": "Hoàn tiền trong 7 ngày làm việc"
+      },
+      "supplier": {
+        "hotel": "Khách sạn 4 sao Grand",
+        "restaurant": "Nhà hàng Đà Thành",
+        "transport": "Xe 45 chỗ du lịch"
+      },
+      "main_destination": "Hồ Chí Minh",
+      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
+      "max_people": 30
+    },
+    {
+      "id": "2",
+      "type": "Nội địa",
+      "name": "Du lịch Nhật Bản",
+      "tour_code": "Q8R2LSXA",
+      "main_destination": "Osaka",
+      "max_people": 30,
+      "images": [
+        "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
+      ],
+      "short_description": "Osaka, Nhật Bản, là thành phố sôi động nổi tiếng với ẩm thực đường phố, lâu đài lịch sử và trung tâm mua sắm nhộn nhịp.\n",
+      "price": {
+        "adult": 7500000,
+        "child": 4200000
+      },
+      "policy": {
+        "cancel": "Hoàn tiền 100% cho những ai mặc bệnh lý",
+        "refund": "Hoàn trả sớm nhất trong 7 ngày đầu "
+      },
+      "supplier": {
+        "hotel": "Golden Horizon Hotel",
+        "restaurant": "Lotus Garden Restaurant",
+        "transport": "Máy bay Boing 174"
+      },
+      "schedule": [
+        {
+          "day": 2,
+          "activity": "Osaka"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": "Quốc tế",
+      "name": "Anh Quốc",
+      "tour_code": "HN5C0BVE",
+      "main_destination": "Tháp Eiffel",
+      "images": [
+        "https://ik.imagekit.io/tvlk/blog/2023/07/thap-eiffel-1-1024x678.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
+      ],
+      "short_description": "Tháp Eiffel là biểu tượng nổi tiếng của Paris, Pháp, với kiến trúc thép cao vút và tầm nhìn toàn thành phố.\n",
+      "max_people": 30,
+      "price": {
+        "adult": 12000000,
+        "child": 8700000
+      },
+      "policy": {
+        "cancel": "Không hoàn trả",
+        "refund": "Không hoàn trả"
+      },
+      "supplier": {
+        "hotel": "Golden Horizon Hotel",
+        "restaurant": "Lotus Garden Restaurant",
+        "transport": "Máy bay Boing 174"
+      },
+      "schedule": []
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "tourId": "1",
+      "email": "khachhang@gmail.com",
+      "phone": "0909123456",
+      "quantity": 2,
+      "departureDate": "2025-11-20",
+      "status": "Đã cọc",
+      "travelType": "Gia đình",
+      "type": "Khách lẻ"
+    },
+    {
+      "id": "2",
+      "tourId": "1",
+      "email": "nguyen@gmail.com",
+      "phone": "0987654321",
+      "quantity": 3,
+      "departureDate": "2025-11-20",
+      "status": "Hoàn thành",
+      "travelType": "Cá nhân"
+    }
+  ],
+  "staffs": [
+    {
+      "name": "Trần Minh Hùng",
+      "sex": "Nam",
+      "email": "tranminh354@gmail.com",
+      "phone": "0901234567",
+      "avatar": "https://i.pinimg.com/736x/14/23/86/1423864abc57f67290992f6c0d69c416.jpg",
+      "type": "quoc_te",
+      "languages": [
+        "Anh",
+        "Nhật"
+      ],
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Nguyễn Thị Lan",
+      "sex": "Nữ",
+      "email": "thilan344@gmail.com",
+      "birth": "1992-05-20",
+      "avatar": "https://i.pinimg.com/1200x/d6/86/13/d68613bbfa13dc302727bb7403325f78.jpg",
+      "phone": "0902345678",
+      "certificate": "HDV Nội địa",
+      "languages": [
+        "Anh",
+        "Pháp"
+      ],
+      "experience": "5 năm",
+      "health": "Tốt",
+      "type": "noi_dia",
+      "toursLed": 50,
+      "rating": 4.6
+    },
+    {
+      "name": "Nguyễn Văn Đức Anh",
+      "sex": "Nam",
+      "email": "nvducanh@gmail.com",
+      "phone": "0987654321",
+      "avatar": "https://jbagy.me/wp-content/uploads/2025/03/Hinh-anh-avatar-nam-cute-2.jpg",
+      "type": "quoc_te",
+      "languages": [
+        "Hàn",
+        "Đức"
+      ],
+      "id": "WBeUkHX"
+    },
+    {
+      "name": "Trần Tuấn A",
+      "sex": "Nữ",
+      "email": "admin@gmail.com",
+      "phone": "0901234567",
+      "avatar": "https://jbagy.me/wp-content/uploads/2025/03/Hinh-anh-avatar-nam-cute-2.jpg",
+      "type": "noi_dia",
+      "languages": [
+        "Hàn",
+        "Đức"
+      ],
+      "id": "7c9wlnl"
+    }
+  ],
+  "departures": [
+    {
+      "id": "1",
+      "tourId": 1,
+      "dateStart": "2025-11-20",
+      "dateEnd": "2025-11-25",
+      "meetingPoint": "Sân bay Tân Sơn Nhất",
+      "guideId": 1,
+      "driver": "Lê Văn Lộc",
+      "services": {
+        "hotel": "Khách sạn 4 sao Grand",
+        "restaurant": "Nhà hàng Biển Xanh",
+        "transport": "Xe 45 chỗ",
+        "flight": "VN012"
+      },
+      "notifications": [
+        "Đã xác nhận khách sạn",
+        "Chưa xác nhận nhà hàng"
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "id": "1",
+      "customerId": 1,
+      "type": "an_chay",
+      "content": "Khách ăn chay trường – tránh món thịt, hải sản"
+    }
+  ],
+  "revenues": [
+    {
+      "id": "1",
+      "tourId": 1,
+      "revenue": 25000000,
+      "expense": 18000000,
+      "profit": 7000000,
+      "month": 11,
+      "year": 2025
+    }
+  ],
+  "guidesLogs": [
+    {
+      "id": "1",
+      "guideId": 1,
+      "tourId": 1,
+      "day": 1,
+      "content": "Đón khách tại sân bay, di chuyển an toàn, thời tiết đẹp.",
+      "images": [
+        "img/log_day1.jpg"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$ldA978ZAxWW2DnGtdVv2IuIvlLFr7FXj/uJxJKI1SFa7e1pUsYnfq",
+      "username": "Admin",
+      "phone": "0912345678",
+      "genre": "Ẩn danh",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": 1
+    },
+    {
+      "email": "tavantruog1702@gamil.com",
+      "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
+      "username": "Admin",
+      "phone": "0123456789",
+      "genre": "Nữ",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "G31noYO"
+    },
+    {
+      "email": "tavantruog1702@gmail.com",
+      "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+      "username": "Tạ Văn Trường",
+      "phone": "0362422418",
+      "genre": "Nam",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "2fdsVEe"
+    },
+    {
+      "email": "ddao51531@gmail.com",
+      "password": "$2a$10$b3qvXbmgAJ38kp1qE5BXZuNqUX5fDWAGRVtPo3ZmFIGiQf.xdrzRG",
+      "username": "Đào Đức Anh",
+      "phone": "0969778516",
+      "genre": "Nam",
+      "role": "user",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "CjPp9fs"
+    }
+  ]
+}
