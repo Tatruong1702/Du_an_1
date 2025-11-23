@@ -32,7 +32,8 @@
         "transport": "Xe 45 chỗ du lịch"
       },
       "main_destination": "Hồ Chí Minh",
-      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo"
+      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
+      "max_people": 30
     },
     {
       "id": "2",
@@ -40,6 +41,7 @@
       "name": "Du lịch Nhật Bản",
       "tour_code": "Q8R2LSXA",
       "main_destination": "Osaka",
+      "max_people": 45,
       "images": [
         "https://upload.wikimedia.org/wikipedia/commons/9/9f/2018_Osaka_Castle_02.jpg"
       ],
@@ -74,6 +76,7 @@
         "https://ik.imagekit.io/tvlk/blog/2023/07/thap-eiffel-1-1024x678.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2"
       ],
       "short_description": "Tháp Eiffel là biểu tượng nổi tiếng của Paris, Pháp, với kiến trúc thép cao vút và tầm nhìn toàn thành phố.\n",
+      "max_people": 30,
       "price": {
         "adult": 12000000,
         "child": 8700000
@@ -94,13 +97,12 @@
     {
       "id": "1",
       "tourId": 1,
-      "customerName": "Nguyễn Văn A",
+      "userId": 2,
+      "travelType": "Gia đình",
       "quantity": 2,
       "type": "khach_le",
-      "date": "2025-11-10",
-      "contact": "0901234567",
       "note": "Yêu cầu phòng đôi, ăn chay",
-      "status": "cho_xac_nhan"
+      "status": "Đã cọc"
     }
   ],
   "staffs": [
@@ -228,33 +230,34 @@
   ],
   "users": [
     {
-      "id": "1",
-      "username": "Admin",
-      "password": "123456",
-      "role": "admin",
       "email": "admin@gmail.com",
-      "avatar": "img/admin.jpg",
-      "phone": "0383742741",
-      "genre": "Ẩn danh",
-      "location": ""
+      "password": "$2a$10$u/BNIA5OI245TtloCmVYl.KzP2L5dFk9XffxQ52TXFlEI4g7tybDa",
+      "username": "Admin",
+      "phone": "0123456789",
+      "genre": "Nữ",
+      "role": "admin",
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "G31noYO"
     },
     {
-      "id": "2",
-      "username": "hdv_lan",
-      "password": "123456",
+      "email": "tavantruog1702@gmail.com",
+      "password": "$2a$10$KWz2lzMxctjbgmxGT.Sj6OM8r52BK.ecDl3h16y27nwvXhi.Vtv/m",
+      "username": "Tạ Văn Trường",
+      "phone": "0362422418",
+      "genre": "Nam",
       "role": "user",
-      "email": "user01@gmail.com",
-      "avatar": "img/hdv_lan.jpg"
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "2fdsVEe"
     },
     {
-      "id": "73cb",
-      "username": "daoducanh",
       "email": "ddao51531@gmail.com",
+      "password": "$2a$10$b3qvXbmgAJ38kp1qE5BXZuNqUX5fDWAGRVtPo3ZmFIGiQf.xdrzRG",
+      "username": "Đào Đức Anh",
       "phone": "0969778516",
       "genre": "Nam",
-      "password": "2b1fac75092be8285de48682e7d8e3de38e6574ce10d213ab4a9bcce25fc8285",
       "role": "user",
-      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg"
+      "avatar": "https://cdn2.fptshop.com.vn/small/avatar_trang_1_cd729c335b.jpg",
+      "id": "CjPp9fs"
     }
   ]
 }

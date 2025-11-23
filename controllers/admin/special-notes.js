@@ -1,5 +1,3 @@
-// controllers/admin/special-notes.js
-// Fetch notes from json-server and render with search + filter support
 
 const API = 'http://localhost:3000/notes';
 
