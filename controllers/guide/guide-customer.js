@@ -1,14 +1,10 @@
-// Khai báo URL API
 moment.locale('vi')
 const API_BASE_URL = 'http://localhost:3000'
 
-// Biến lưu trữ dữ liệu
 let allTours = [];
-let allGuides = [];
 let allDepartures = [];
 let allBookings = [];
-
-// 1. Tải dữ liệu và khởi tạo
+let allGuides = [];
 
 async function fetchData(endpoint) {
     try {
@@ -19,123 +15,102 @@ async function fetchData(endpoint) {
         return await response.json();
     } catch (error) {
         console.error(error);
-
         document.getElementById('customerList').innerHTML = '<tr><td colspan="7" class="text-center text-danger p-4">Không thể kết nối đến API. Hãy đảm bảo JSON Server đang chạy.</td></tr>';
         return [];
     }
 }
 
 async function initPage() {
-    //tải tất cả các dữ liệu
-    [allTours, allGuides, allDepartures, allBookings] = await Promise.all([
+    [allTours, allDepartures, allBookings, allGuides] = await Promise.all([
         fetchData('tours'),
-        fetchData('staffs'),
         fetchData('departures'),
         fetchData('bookings'),
+        fetchData('staffs'),
     ]);
 
-    //Lọc hướng dẫn viên nội địa hoặc quốc tế
+    populateTourFilter(); 
 
-    allGuides = allGuides.filter(staff => staff.type === 'noi_dia' || staff.type === 'quoc_te');
-
-    if (allGuides.length > 0) {
-        populateGuideFilter();
-    }
-    document.getElementById('guideFilter').addEventListener('change', populateDepartureFilter);
-    document.getElementById('guideFilter').addEventListener('change', applyFilter);
-    document.getElementById('departureFilter').addEventListener('change', applyFilter);
-}
-
-// Điền dữ liệu lọc HDV
-
-function populateGuideFilter() {
-    const select = document.getElementById('guideFilter');
-
-    allGuides.forEach(guide => {
-        const option = document.createElement('option');
-        // hiển thị tên và id HDV
-        option.value = String(guide.id); // đảm bảo value là chuỗi
-        option.textContent = guide.name
-        select.appendChild(option);
+    document.getElementById('tourFilter').addEventListener('change', () => { 
+        document.getElementById('tripInfo').style.display = "none";
+        document.getElementById('customerList').innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Vui lòng nhấn "Xem Khách" để lấy danh sách.</td></tr>';
     });
 }
 
-//2 Xử lý lọc HDV
-
 function getTourInfo(tourID) {
-    // chuyển id tour sang kiểu số để so sánh
     return allTours.find(t => String(t.id) === String(tourID));
 }
 
-function populateDepartureFilter() {
-    const guideId = document.getElementById('guideFilter').value;
-    const selectDeparture = document.getElementById('departureFilter');
-
-    selectDeparture.innerHTML = '<option value = ""> -- Chọn Tour / Ngày </option>';
-
-    if (!guideId) {
-        selectDeparture.disabled = true;
-        document.getElementById('tripInfo').style.display = "none";
-        return;
-    }
-
-    // Lọc các khởi hành có HDV được chọn
-
-    const filteredDepartures = allDepartures.filter(dep => String(dep.guideId) === guideId).sort((a, b) => moment(a.dateStart) - moment(b.dateStart)) // sắp xếp theo ngày
-    filteredDepartures.forEach(dep => {
-        const tour = getTourInfo(dep.tourId);
-        const dateSt = moment(dep.dateStart).format("DD/MM/YYYY");
-
-        const option = document.createElement('option');
-
-        option.value = `${dep.tourId}_${dep.dateStart}`;
-        option.textContent = `${dateSt}-${tour ? tour.name : 'tour không tồn tại'}`
-
-        selectDeparture.appendChild(option);
-    });
-
-    selectDeparture.disabled = filteredDepartures.length === 0;
+function getStaffInfo(staffID) {
+    return allGuides.find(s => String(s.id) === String(staffID));
 }
 
+function populateTourFilter() {
+    const selectTour = document.getElementById('tourFilter'); 
 
-// 3 Xử lý hiện thị thông tin chuyến đi và khách hàng 
+    selectTour.innerHTML = '<option value = ""> -- Chọn Tour -- </option>';
+    document.getElementById('tripInfo').style.display = "none";
+
+    const validTours = allTours.filter(t => t.name && t.id).sort((a, b) => a.id - b.id);
+    
+    validTours.forEach(tour => {
+        const option = document.createElement('option');
+
+        option.value = String(tour.id);
+        option.textContent = `${tour.name} (Mã: ${tour.tour_code || 'N/A'})`; 
+
+        selectTour.appendChild(option);
+    });
+
+    selectTour.disabled = validTours.length === 0;
+    selectTour.value = ""; 
+    
+    document.getElementById('customerList').innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Tour, sau đó nhấn "Xem Khách".</td></tr>';
+}
 
 function applyFilter() {
-    const selectedDepartureValue = document.getElementById("departureFilter").value;
+    const selectedTourId = document.getElementById("tourFilter").value; 
 
     document.getElementById("tripInfo").style.display = "none";
-
     document.getElementById("listTitle").textContent = ` Khách hàng của chuyến đi `;
 
-    if (!selectedDepartureValue) {
-        document.getElementById("customerList").innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Tour và Ngày khởi hành.</td></tr>';
+    if (!selectedTourId) {
+        document.getElementById("customerList").innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Tour.</td></tr>';
         return;
     }
 
-    // tách tourId và dateStart từ giá trị đã chọn
-    const [tourId, dateStart] = selectedDepartureValue.split('_');
-
-    //1Lọc Booking theo tourId và dateStart
     let filteredBookings = allBookings.filter(booking => {
-        return String(booking.tourId) === tourId && booking.departureDate === dateStart;
+        return String(booking.tourId) === selectedTourId; 
     });
-
-    //2 lấy thong tin tour 
-    const departureDetail = allDepartures.find(dep => String(dep.tourId) === tourId && dep.dateStart === dateStart);
-
-    const tourDetail = getTourInfo(tourId);
-
-    //3 cập nhật thông tin dashboard 
-    if (departureDetail && tourDetail) {
+    const tourDetail = getTourInfo(selectedTourId);
+    
+    const guideDepartures = allDepartures.filter(dep => String(dep.tourId) === selectedTourId);
+    
+    let staffInfoHtml = 'N/A';
+    
+    if (guideDepartures.length > 0) {
+        // Lấy danh sách guideId duy nhất
+        const uniqueGuideIds = [...new Set(guideDepartures.map(dep => dep.guideId))];
+        
+        staffInfoHtml = uniqueGuideIds.map(guideId => {
+            const staff = getStaffInfo(guideId);
+            return staff ? staff.name : `ID ${guideId} (Không tìm thấy)`;
+        }).join(', ');
+    }
+    
+    if (tourDetail) {
         document.getElementById('infoTourName').textContent = tourDetail.name;
         document.getElementById('infoTourCode').textContent = tourDetail.tour_code || 'N/A';
-        document.getElementById('infoDriver').textContent = departureDetail.driver || 'Chưa phân công';
-        document.getElementById('infoMeetingPoint').textContent = departureDetail.meetingPoint || 'N/A';
+        
+        // Hiển thị HDV (sử dụng lại ID 'infoDriver')
+        document.getElementById('infoDriver').textContent = staffInfoHtml; 
+        
+        // Gán giá trị rỗng cho infoMeetingPoint
+        document.getElementById('infoMeetingPoint').textContent = ''; 
+
         document.getElementById('tripInfo').style.display = 'block';
-        document.getElementById('listTitle').textContent = `Danh sách ${filteredBookings.length} khách hàng cho chuyến ${tourDetail.name} khởi hành ngày ${moment(dateStart).format('DD/MM/YYYY')}`;
+        document.getElementById('listTitle').textContent = `Danh sách ${filteredBookings.length} khách hàng đã đặt Tour ${tourDetail.name}`;
     }
 
-    //4 cập nhât danh sách khách hàng
     updateCustomerList(filteredBookings);
 }
 
@@ -144,7 +119,7 @@ function updateCustomerList(bookings) {
     tbody.innerHTML = '';
 
     if (bookings.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Không tìm thấy khách hàng nào cho chuyến đi này.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted p-4">Không tìm thấy khách hàng nào đã đặt Tour này.</td></tr>';
         return;
     }
 
@@ -172,7 +147,5 @@ function updateCustomerList(bookings) {
         `;
     })
 }
-
-//chạy hàm khởi tạo khi DOM tải xong
 
 document.addEventListener('DOMContentLoaded', initPage)

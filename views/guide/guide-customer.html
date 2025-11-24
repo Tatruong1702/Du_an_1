@@ -11,14 +11,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.min.js"></script>
     <style>
         body {
-            background: #e1f5fe; /* Màu nền xanh nhạt */
+            background: #e1f5fe;
+            /* Màu nền xanh nhạt */
         }
 
         .card-header-custom {
-            background-color: #03a9f4; /* Màu xanh dương cho tiêu đề */
+            background-color: #03a9f4;
+            /* Màu xanh dương cho tiêu đề */
             color: white;
         }
-        
+
         .table thead th {
             vertical-align: middle;
             font-weight: 600;
@@ -35,20 +37,18 @@
         <div class="card shadow-sm mb-4">
             <div class="card-body">
                 <form id="filterForm" class="row g-3 align-items-end">
-                    <div class="col-md-4">
-                        <label for="guideFilter" class="form-label">Chọn Hướng Dẫn Viên</label>
-                        <select id="guideFilter" class="form-select" onchange="populateDepartureFilter(); applyFilter();">
-                            <option value="">-- Chọn HDV --</option>
-                            </select>
+
+                    <div class="col-md-10">
+                        <label for="tourFilter" class="form-label">Chọn Tour</label>
+                        <select id="tourFilter" class="form-select">
+                            <option value="">-- Chọn Tour --</option>
+                        </select>
                     </div>
-                    <div class="col-md-5">
-                        <label for="departureFilter" class="form-label">Chọn Tour / Ngày Khởi Hành</label>
-                        <select id="departureFilter" class="form-select" onchange="applyFilter()" disabled>
-                            <option value="">-- Chọn Tour / Ngày --</option>
-                            </select>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-info text-white w-100" onclick="applyFilter()">Xem Khách</button>
+
+                    <div class="col-md-2">
+                        <label class="form-label" style="visibility: hidden;">Xem Khách</label>
+                        <button type="button" class="btn btn-info text-white w-100" onclick="applyFilter()">Xem
+                            Khách</button>
                     </div>
                 </form>
             </div>
@@ -56,7 +56,8 @@
 
         <div class="alert alert-primary shadow-sm" id="tripInfo" role="alert" style="display:none;">
             <p class="mb-1"><strong>Tour: </strong><span id="infoTourName"></span> (<span id="infoTourCode"></span>)</p>
-            <p class="mb-0"><strong>Tài xế: </strong><span id="infoDriver"></span> | <strong>Điểm đón: </strong><span id="infoMeetingPoint"></span></p>
+            <p class="mb-0"><strong>Hướng dẫn viên: </strong><span id="infoDriver"></span> <span
+                    id="infoMeetingPoint"></span></p>
         </div>
 
 
@@ -80,7 +81,8 @@
                         </thead>
                         <tbody id="customerList">
                             <tr>
-                                <td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Hướng dẫn viên và chuyến đi để xem danh sách khách.</td>
+                                <td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Hướng dẫn viên và
+                                    chuyến đi để xem danh sách khách.</td>
                             </tr>
                         </tbody>
                     </table>
