@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Trình & Phân Công Hướng Dẫn Viên</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.min.js"></script>
+    <style>
+        body {
+            background: #f8f9fa; /* Màu nền nhẹ */
+        }
+
+        .card-header-custom {
+            background-color: #3f51b5; /* Màu xanh đậm cho tiêu đề */
+            color: white;
+        }
+
+        .table thead th {
+            vertical-align: middle;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-4">
+
+        <h2 class="mb-4 text-dark"><i class="bi bi-calendar-week"></i> Lịch Trình Khởi Hành & Phân Công Hướng Dẫn Viên</h2>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <form id="filterForm" class="row g-3 align-items-end">
+                    <div class="col-md-3">
+                        <label for="monthFilter" class="form-label">Chọn tháng</label>
+                        <input type="month" class="form-control" id="monthFilter">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tourFilter" class="form-label">Chọn Tour</label>
+                        <select id="tourFilter" class="form-select">
+                            <option value="">Tất cả Tour</option>
+                            </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="guideFilter" class="form-label">Chọn Hướng dẫn viên</label>
+                        <select id="guideFilter" class="form-select">
+                            <option value="">Tất cả HDV</option>
+                            </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary w-100" onclick="applyFilter()">Lọc</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card shadow">
+            <div class="card-header-custom p-3">
+                <h5 class="mb-0">Danh sách các Lịch Khởi Hành (Departures)</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên Tour</th>
+                                <th>Mã Tour</th>
+                                <th>Ngày Khởi Hành</th>
+                                <th>Ngày Kết Thúc</th>
+                                <th>Hướng Dẫn Viên</th>
+                                <th>Tài Xế</th>
+                                <th>Điểm Tập Kết</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleList">
+                            <tr>
+                                <td colspan="8" class="text-center text-muted p-4">Đang tải dữ liệu lịch trình...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="guild-schedule.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

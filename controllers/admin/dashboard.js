@@ -12,7 +12,6 @@ const profitTotalEl = document.querySelector("#netProfit");
 
 const guideTableBody = document.querySelector("#guideListBody");
 const departureTableBody = document.querySelector("#upcomingDeparturesBody");
-// const monthlyRevenueBody = document.querySelector("#monthlyRevenueBody"); // Đã loại bỏ vì không cần thiết
 
 const revenueChartCanvas = document.querySelector("#revenueChart"); // Selector cho Chart.js
 
@@ -31,7 +30,7 @@ function handleError(element, message, defaultValue = "...") {
     }
 }
 
-// ================== 2. LẤY TỔNG TOUR ==================
+//2. LẤY TỔNG TOUR
 async function loadTours() {
     try {
         const res = await fetch(`${API_URL}/tours`);
@@ -43,7 +42,7 @@ async function loadTours() {
     }
 }
 
-// ================== 3. LẤY TỔNG BOOKING ==================
+// 3. LẤY TỔNG BOOKING
 async function loadBookings() {
     try {
         const res = await fetch(`${API_URL}/bookings`);
@@ -55,7 +54,7 @@ async function loadBookings() {
     }
 }
 
-// ================== 4. LẤY DOANH THU – CHI PHÍ – LỢI NHUẬN TỔNG & DỮ LIỆU THÔ ==================
+// 4. LẤY DOANH THU – CHI PHÍ – LỢI NHUẬN TỔNG & DỮ LIỆU THÔ
 async function loadRevenueAndStats() {
     try {
         const res = await fetch(`${API_URL}/revenues`);
@@ -87,7 +86,7 @@ async function loadRevenueAndStats() {
     }
 }
 
-// ================== 5. DANH SÁCH HƯỚNG DẪN VIÊN ==================
+// 5. DANH SÁCH HƯỚNG DẪN VIÊN
 async function loadGuides() {
     try {
         const res = await fetch(`${API_URL}/staffs`);
@@ -109,7 +108,7 @@ async function loadGuides() {
     }
 }
 
-// ================== 6. LỊCH KHỞI HÀNH ==================
+// 6. LỊCH KHỞI HÀNH
 async function loadDepartures() {
     try {
         const [departuresRes, toursRes, staffsRes] = await Promise.all([
@@ -158,11 +157,9 @@ async function loadDepartures() {
     }
 }
 
-// ================== 7. XỬ LÝ DỮ LIỆU & VẼ BIỂU ĐỒ (CHART.JS) ==================
+// 7. XỬ LÝ DỮ LIỆU & VẼ BIỂU ĐỒ (CHART.JS)
 
-/**
- * Xử lý dữ liệu Doanh thu, Chi phí & Lợi nhuận cho biểu đồ (3 chuỗi dữ liệu)
- */
+
 function processRevenueForChart(revenuesData) {
     const dataMap = {};
 
@@ -220,7 +217,7 @@ function renderRevenueChart(labels, revenueData, expenseData, profitData) {
         data: {
             labels: labels,
             datasets: [
-                // DATASET 1: 
+                // DATASET 1: DOANH THU
                 {
                     label: 'Doanh thu',
                     data: revenueData,
@@ -310,7 +307,7 @@ function renderRevenueChart(labels, revenueData, expenseData, profitData) {
 }
 
 
-// ================== CHẠY TẤT CẢ HÀM ==================
+// CHẠY TẤT CẢ HÀM
 async function initDashboard() {
     // Tải các chỉ số thống kê cơ bản
     await Promise.all([

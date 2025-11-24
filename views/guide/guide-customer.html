@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Khách Hàng Theo Hướng Dẫn Viên</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.min.js"></script>
+    <style>
+        body {
+            background: #e1f5fe; /* Màu nền xanh nhạt */
+        }
+
+        .card-header-custom {
+            background-color: #03a9f4; /* Màu xanh dương cho tiêu đề */
+            color: white;
+        }
+        
+        .table thead th {
+            vertical-align: middle;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-4">
+
+        <h2 class="mb-4 text-dark"><i class="bi bi-person-badge"></i> Danh Sách Khách Hàng Theo Hướng Dẫn Viên</h2>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <form id="filterForm" class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label for="guideFilter" class="form-label">Chọn Hướng Dẫn Viên</label>
+                        <select id="guideFilter" class="form-select" onchange="populateDepartureFilter(); applyFilter();">
+                            <option value="">-- Chọn HDV --</option>
+                            </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="departureFilter" class="form-label">Chọn Tour / Ngày Khởi Hành</label>
+                        <select id="departureFilter" class="form-select" onchange="applyFilter()" disabled>
+                            <option value="">-- Chọn Tour / Ngày --</option>
+                            </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-info text-white w-100" onclick="applyFilter()">Xem Khách</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="alert alert-primary shadow-sm" id="tripInfo" role="alert" style="display:none;">
+            <p class="mb-1"><strong>Tour: </strong><span id="infoTourName"></span> (<span id="infoTourCode"></span>)</p>
+            <p class="mb-0"><strong>Tài xế: </strong><span id="infoDriver"></span> | <strong>Điểm đón: </strong><span id="infoMeetingPoint"></span></p>
+        </div>
+
+
+        <div class="card shadow">
+            <div class="card-header-custom p-3">
+                <h5 class="mb-0" id="listTitle">Khách hàng của chuyến đi</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên Khách hàng</th>
+                                <th>Email</th>
+                                <th>Điện thoại</th>
+                                <th>Số lượng</th>
+                                <th>Loại hình</th>
+                                <th>Trạng thái Booking</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customerList">
+                            <tr>
+                                <td colspan="7" class="text-center text-muted p-4">Vui lòng chọn Hướng dẫn viên và chuyến đi để xem danh sách khách.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/controllers/guide/guide-customer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

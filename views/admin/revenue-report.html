@@ -8,28 +8,27 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/vi.min.js"></script>
 </head>
 
 <body style="background:#fdf8e7;">
 
     <div class="container-fluid p-4">
 
-        <h2 class="mb-4 text-dark">Báo cáo doanh thu</h2>
+        <h2 class="mb-4 text-dark">Báo cáo doanh thu 📈</h2>
 
-        <!-- FORM LỌC -->
         <div class="bg-white rounded shadow-sm p-4 mb-4">
             <form id="filterForm" class="row g-3 align-items-end">
                 <div class="col-md-3">
-                    <label for="month" class="form-label">Chọn tháng</label>
-                    <input type="month" class="form-control" id="month">
+                    <label for="monthFilter" class="form-label">Chọn tháng</label>
+                    <input type="month" class="form-control" id="monthFilter">
                 </div>
                 <div class="col-md-3">
-                    <label for="tour" class="form-label">Chọn Tour</label>
-                    <select id="tour" class="form-select">
-                        <option value="">Tất cả</option>
-                        <option value="tour1">Tour Miền Trung</option>
-                        <option value="tour2">Tour Miền Bắc</option>
-                    </select>
+                    <label for="tourFilter" class="form-label">Chọn Tour</label>
+                    <select id="tourFilter" class="form-select">
+                        <option value="">Tất cả Tour</option>
+                        </select>
                 </div>
                 <div class="col-md-3">
                     <button type="button" class="btn btn-primary" onclick="applyFilter()">Lọc</button>
@@ -37,62 +36,49 @@
             </form>
         </div>
 
-        <!-- DASHBOARD CARDS -->
         <div class="row g-4 mb-4">
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded shadow-sm text-center">
-                    <h4 class="text-dark" id="totalRevenue">850,000,000đ</h4>
-                    <div>Tổng doanh thu</div>
+                <div class="p-4 bg-white rounded shadow-sm text-center border-start border-primary border-4">
+                    <div class="text-secondary mb-1">Tổng doanh thu</div>
+                    <h4 class="text-dark" id="totalRevenue">Đang tải...</h4>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded shadow-sm text-center">
-                    <h4 class="text-dark" id="totalBooking">540</h4>
-                    <div>Số booking</div>
+                <div class="p-4 bg-white rounded shadow-sm text-center border-start border-success border-4">
+                    <div class="text-secondary mb-1">Số booking</div>
+                    <h4 class="text-dark" id="totalBooking">Đang tải...</h4>
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="p-4 bg-white rounded shadow-sm text-center">
-                    <h4 class="text-dark" id="avgRevenue">1,574,000đ</h4>
-                    <div>Doanh thu trung bình / booking</div>
+                <div class="p-4 bg-white rounded shadow-sm text-center border-start border-info border-4">
+                    <div class="text-secondary mb-1">Doanh thu TB / booking</div>
+                    <h4 class="text-dark" id="avgRevenue">Đang tải...</h4>
                 </div>
             </div>
         </div>
 
-        <!-- BIỂU ĐỒ DOANH THU -->
         <div class="bg-white rounded shadow-sm p-4 mb-5">
             <h5>Biểu đồ doanh thu theo tháng</h5>
             <canvas id="revenueChart" height="100"></canvas>
         </div>
 
-        <!-- BẢNG CHI TIẾT BOOKING -->
         <div class="bg-white rounded shadow-sm p-3">
             <h5>Chi tiết các booking</h5>
             <div class="table-responsive">
                 <table class="table table-hover mb-0">
-                    <thead class="table-warning text-dark">
+                    <thead class="table-dark text-white">
                         <tr>
                             <th>STT</th>
                             <th>Tên Tour</th>
                             <th>Khách hàng</th>
-                            <th>Ngày booking</th>
-                            <th>Doanh thu</th>
+                            <th>Ngày khởi hành</th>
+                            <th>Số lượng</th>
+                            <th>Doanh thu dự kiến</th>
                         </tr>
                     </thead>
                     <tbody id="bookingList">
                         <tr>
-                            <td>1</td>
-                            <td>Tour Miền Trung</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>12/11/2025</td>
-                            <td>5,000,000đ</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Tour Miền Bắc</td>
-                            <td>Trần Thị B</td>
-                            <td>14/11/2025</td>
-                            <td>4,200,000đ</td>
+                            <td colspan="6" class="text-center text-muted">Đang tải danh sách booking...</td>
                         </tr>
                     </tbody>
                 </table>
@@ -101,35 +87,8 @@
 
     </div>
 
-    <script>
-        // Chart.js demo
-        const ctx = document.getElementById('revenueChart').getContext('2d');
-        const revenueChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
-                datasets: [{
-                    label: 'Doanh thu (đ)',
-                    data: [120000000, 90000000, 150000000, 80000000, 95000000, 110000000],
-                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
-
-        function applyFilter() {
-            const month = document.getElementById('month').value;
-            const tour = document.getElementById('tour').value;
-            alert(`Lọc dữ liệu cho:\nTháng: ${month}\nTour: ${tour}`);
-            // TODO: Gọi API để lọc dữ liệu và cập nhật bảng + biểu đồ
-        }
-    </script>
+    <script src="revenue.js"></script>
 
 </body>
+
 </html>
