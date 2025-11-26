@@ -1,0 +1,192 @@
+:root {
+            --sidebar-bg: #7b5e2a; 
+            --accent-color: #f5c542; 
+            --panel-bg: #f5f5dc; 
+            --text-dark: #3c2e17; 
+            --card-bg: #ffffff; 
+            --sidebar-width: 250px;
+            --table-header-bg: #fff3cd; 
+        }
+
+        body {
+            background-color: var(--panel-bg); 
+            color: var(--text-dark);
+            font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* ĐIỀU CHỈNH QUAN TRỌNG: Thiết lập layout Flexbox */
+            display: flex; 
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--sidebar-bg); 
+            color: #fff;
+            padding: 20px 0;
+            flex-shrink: 0; /* Đảm bảo Sidebar giữ nguyên kích thước */
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 24px;
+            color: #fff7e0;
+            margin-bottom: 20px;
+            padding: 0 24px;
+        }
+
+        .sidebar .logo .icon-wrapper {
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .sidebar .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 24px;
+            cursor: pointer;
+            color: #ffffff; 
+            font-weight: 500;
+            font-size: 15px;
+            transition: background 0.15s;
+            text-decoration: none;
+        }
+        
+        .sidebar .nav-item a {
+            color: inherit;
+            text-decoration: none;
+            flex-grow: 1;
+        }
+
+        .sidebar .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar .nav-item.active {
+            background: #a37c35; 
+            color: #fff; 
+            font-weight: 600; 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 19px;
+        }
+
+        /* Main Content Styling */
+        .main-content { 
+            flex: 1; /* ĐIỀU CHỈNH QUAN TRỌNG: Chiếm hết không gian còn lại */
+            padding: 40px 60px; 
+        }
+
+        /* Typography */
+        h2 { 
+            font-weight: 400; 
+            color: #333; 
+            font-size: 26px;
+            margin-bottom: 30px !important;
+        }
+        h2 .bi { color: var(--accent-color); }
+
+        /* Card and Panel Styling */
+        .card-panel {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+            border: none; 
+        }
+
+        /* Filter Form - Đảm bảo thẳng hàng */
+        .form-label { 
+            color: #777; 
+            font-weight: 500; 
+            margin-bottom: 0.5rem;
+        }
+        #filterForm.row {
+            align-items: flex-end !important;
+        }
+        .form-control, .form-select, .btn-primary {
+            height: 40px; 
+        }
+
+        .btn-primary {
+             background: var(--sidebar-bg); 
+             border: none;
+             color: #fff;
+             font-weight: 600;
+             border-radius: 4px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+        }
+        .btn-primary:hover {
+            background: #5a411f;
+        }
+        
+        /* Table Header (Card Header) - Đồng bộ Admin Panel */
+        .card-header-staff {
+            background: var(--sidebar-bg);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            font-weight: 700;
+        }
+        .card-header-staff h5 { margin: 0; font-weight: 700; }
+
+        /* Table Styling */
+        .table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            margin-bottom: 0;
+        }
+
+        .table thead th {
+            background: var(--table-header-bg) !important; 
+            color: var(--text-dark); 
+            font-weight: 600;
+            padding: 12px 15px;
+            text-transform: uppercase;
+            border: none !important;
+            vertical-align: middle;
+            font-size: 13px;
+        }
+
+        .table tbody tr {
+            background: var(--card-bg);
+            transition: background 0.1s;
+            border-bottom: 1px solid #eee; 
+        }
+
+        .table tbody tr:hover {
+            background: #fcfcfc;
+        }
+        
+        .table td, .table th {
+            border: none;
+            vertical-align: middle;
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+        
+        /* Trạng thái trong bảng */
+        .badge-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }

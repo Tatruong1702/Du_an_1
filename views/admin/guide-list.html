@@ -33,11 +33,6 @@
         </div>
         <div class="nav-item"><i class="bi bi-calendar-check"></i><a href=""> Đợt khởi hành</a></div>
         <div class="nav-item"><i class="bi bi-bookmark-check"></i><a href="/views/admin/booking-tour.html"> Đặt chỗ</a></div>
-        <div class="nav-item"><i class="bi bi-house-door-fill"></i><a href="/views/admin/dashboard.html">Trang quản trị</a></div>
-        <div class="nav-item"><i class="bi bi-airplane"></i><a href="/views/admin/tour-list.html"> Quản lý Tour</a>
-        </div>
-        <div class="nav-item"><i class="bi bi-calendar-check"></i><a href=""> Đợt khởi hành</a></div>
-        <div class="nav-item"><i class="bi bi-bookmark-check"></i><a href=""> Đặt chỗ</a></div>
         <div class="nav-item"><i class="bi bi-people-fill"></i><a href="/views/admin/customer-list.html"> Khách hàng</a>
         </div>
         <div class="nav-item active"><i class="bi bi-person-badge"></i><a href="/views/admin/guide-list.html">Hướng dẫn
@@ -83,21 +78,6 @@
             <option value="">-- Loại HDV --</option>
             <option value="noi_dia">Nội địa</option>
             <option value="quoc_te">Quốc tế</option>
-      <h3 style="margin-bottom:22px; color:#4a3512;">Danh sách hướng dẫn viên</h3>
-      <div class="grid">
-        <div class="card-panel">
-          <select id="filterSex" class="form-select mt-3">
-            <option value="">-- Lọc theo giới tính --</option>
-            <option value="Nam">Nam</option>
-            <option value="Nữ">Nữ</option>
-          </select>
-        </div>
-        <div class="card-panel">
-
-          <select id="filterType" class="form-select mt-3">
-            <option value="">-- Lọc theo loại HDV --</option>
-            <option value="Nội địa">Nội địa</option>
-            <option value="Quốc tế">Quốc tế</option>
           </select>
         </div>
       </div>
@@ -105,8 +85,6 @@
       <div style="margin-top:22px" class="card-panel">
         <table class="table table-hover">
           <thead class="table-primary">
-        <table class="table">
-          <thead>
             <tr>
               <th>STT</th>
               <th>Tên</th>
@@ -117,14 +95,11 @@
               <th>Loại HDV</th>
               <th>Ngôn ngữ</th>
               <th>Hành động</th>
-              <th>Loại hướng dẫn viên</th>
-              <th>Ngôn ngữ</th>
             </tr>
           </thead>
           <tbody id="guideTableBody">
             <tr>
               <td colspan="9" class="text-center text-muted">Đang tải...</td>
-              <td colspan="8" style="text-align:center;color:#999;">Đang tải dữ liệu...</td>
             </tr>
           </tbody>
         </table>

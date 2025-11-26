@@ -8,11 +8,23 @@
       "schedule": [
         {
           "day": 1,
-          "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An"
+          "activity": "Đà Nẵng – Ngũ Hành Sơn – Hội An: Đến Đà Nẵng, tham quan Ngũ Hành Sơn, tối khám phá Phố cổ Hội An."
         },
         {
           "day": 2,
-          "activity": "Cù Lao Chàm – Biển Mỹ Khê"
+          "activity": "Bà Nà Hills: Cả ngày khám phá khu du lịch Bà Nà Hills, chiêm ngưỡng Cầu Vàng và làng Pháp."
+        },
+        {
+          "day": 3,
+          "activity": "Huế (Đại Nội – Chùa Thiên Mụ): Di chuyển đến Huế, tham quan Đại Nội, Lăng Khải Định và Chùa Thiên Mụ. Tối đi thuyền Sông Hương."
+        },
+        {
+          "day": 4,
+          "activity": "Động Phong Nha/Thiên Đường (Quảng Bình): Di chuyển đến Quảng Bình, khám phá Động Phong Nha hoặc Động Thiên Đường. Chiều về lại Đà Nẵng."
+        },
+        {
+          "day": 5,
+          "activity": "Cù Lao Chàm – Tạm biệt: Buổi sáng đi Cù Lao Chàm, lặn ngắm san hô (hoặc tự do mua sắm). Chiều ra sân bay."
         }
       ],
       "images": [
@@ -32,7 +44,7 @@
         "transport": "Xe 45 chỗ du lịch"
       },
       "main_destination": "Hồ Chí Minh",
-      "short_description": "1 ea mkwe nqw kèl ikne ikw3j nkd nka nekqlo",
+      "short_description": "Hành trình 5 ngày khám phá trọn vẹn di sản miền Trung từ Đà Nẵng, Hội An, Huế đến Quảng Bình.",
       "max_people": 30
     },
     {
@@ -61,15 +73,31 @@
       },
       "schedule": [
         {
+          "day": 1,
+          "activity": "Khởi hành đến Osaka – Nhận phòng khách sạn"
+        },
+        {
           "day": 2,
-          "activity": "Osaka"
+          "activity": "Tham quan Lâu đài Osaka (Osaka-jo) và Khu Dotonbori"
+        },
+        {
+          "day": 3,
+          "activity": "Tham quan Universal Studios Japan (USJ)"
+        },
+        {
+          "day": 4,
+          "activity": "Mua sắm tại Shinsaibashi-suji và khám phá Tháp Tsutenkaku"
+        },
+        {
+          "day": 5,
+          "activity": "Tự do và trở về Việt Nam"
         }
       ]
     },
     {
       "id": "3",
       "type": "Quốc tế",
-      "name": "Anh Quốc",
+      "name": "Pháp",
       "tour_code": "HN5C0BVE",
       "main_destination": "Tháp Eiffel",
       "images": [
@@ -90,9 +118,36 @@
         "restaurant": "Lotus Garden Restaurant",
         "transport": "Máy bay Boing 174"
       },
-      "schedule": []
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "Khởi hành đến London – Tham quan Cung điện Buckingham"
+        },
+        {
+          "day": 2,
+          "activity": "Khám phá Tháp London và Cầu Tháp (Tower Bridge)"
+        },
+        {
+          "day": 3,
+          "activity": "Tham quan Bảo tàng Anh (British Museum) và Quảng trường Trafalgar"
+        },
+        {
+          "day": 4,
+          "activity": "Đi tàu đến Paris – Tham quan Tháp Eiffel"
+        },
+        {
+          "day": 5,
+          "activity": "Bảo tàng Louvre và Khải Hoàn Môn"
+        },
+        {
+          "day": 6,
+          "activity": "Tự do mua sắm và trở về"
+        }
+      ]
     }
   ],
+  
+
   "bookings": [
     {
       "id": "1",

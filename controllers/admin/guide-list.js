@@ -1,15 +1,11 @@
 let guidesData = []; // lưu dữ liệu gốc
-<<<<<<< HEAD
 let editingId = null; // lưu id khi đang sửa
-=======
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
 
 const getGuides = async () => {
   try {
     const res = await fetch('http://localhost:3000/staffs');
     const data = await res.json();
     guidesData = data;
-<<<<<<< HEAD
 
     // Cập nhật số lượng HDV
     const totalEl = document.getElementById('total-guides');
@@ -19,11 +15,6 @@ const getGuides = async () => {
   } catch (error) {
     console.error("Lỗi khi lấy dữ liệu HDV:", error);
     alert("Không thể tải danh sách hướng dẫn viên!");
-=======
-    renderGuides(data);
-  } catch (error) {
-    console.error("Lỗi khi lấy dữ liệu HDV:", error);
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
   }
 }
 
@@ -32,11 +23,7 @@ const renderGuides = (list) => {
   if (!tbody) return;
 
   if (!list || list.length === 0) {
-<<<<<<< HEAD
     tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:#999;">Không có HDV nào</td></tr>`;
-=======
-    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:#999;">Không có HDV nào</td></tr>`;
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
     return;
   }
 
@@ -48,17 +35,12 @@ const renderGuides = (list) => {
     return `
       <tr>
         <th scope="row">${index + 1}</th>
-<<<<<<< HEAD
         <td><strong>${g.name}</strong></td>
-=======
-        <td>${g.name}</td>
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
         <td>${g.sex}</td>
         <td>${g.email}</td>
         <td style="text-align: center;">
             <img src="${avatarUrl}" alt="${g.name}" width="60" height="60" style="border-radius:50%;">
         </td>
-<<<<<<< HEAD
         <td>${g.phone || '—'}</td>
         <td>
           <span class="badge ${g.type === 'quoc_te' ? 'bg-primary' : 'bg-success'}">
@@ -71,11 +53,6 @@ const renderGuides = (list) => {
             <i class="bi bi-trash"></i>
           </button>
         </td>
-=======
-        <td>${g.phone}</td>
-        <td>${typeName}</td>
-        <td>${languages}</td>
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
       </tr>
     `;
   }).join('');
@@ -83,7 +60,6 @@ const renderGuides = (list) => {
   tbody.innerHTML = trLists;
 }
 
-<<<<<<< HEAD
 // ========== MODAL SỬA ==========
 // window.openEditModal = (id) => {
 //   const guide = guidesData.find(g => g.id === id);
@@ -117,9 +93,6 @@ window.deleteGuide = async (id, name) => {
 }
 
 // ========== LỌC THEO 2 SELECT==========
-=======
-// Lọc theo 2 select
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
 const applyFilters = () => {
   const sexFilter = document.getElementById('filterSex').value;
   const typeFilter = document.getElementById('filterType').value;
@@ -131,18 +104,13 @@ const applyFilters = () => {
   }
 
   if (typeFilter) {
-<<<<<<< HEAD
     const typeKey = typeFilter === 'noi_dia' ? 'noi_dia' : 'quoc_te';
     filtered = filtered.filter(g => g.type === typeKey);
-=======
-    filtered = filtered.filter(g => (g.type === 'quoc_te' ? 'Quốc tế' : 'Nội địa') === typeFilter);
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
   }
 
   renderGuides(filtered);
 }
 
-<<<<<<< HEAD
 // ========== THÊM VÀ SỬA) ==========
 document.getElementById('saveGuideBtn')?.addEventListener('click', async () => {
   const name = document.getElementById('guideName').value.trim();
@@ -202,16 +170,9 @@ document.querySelector('[data-bs-target="#guideModal"]')?.addEventListener('clic
 });
 
 
-=======
-// Khởi chạy
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
 document.addEventListener('DOMContentLoaded', () => {
   getGuides();
 
   document.getElementById('filterSex').addEventListener('change', applyFilters);
   document.getElementById('filterType').addEventListener('change', applyFilters);
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> b967e670fc90e5ec10864abecaf8b3ce95255d95
