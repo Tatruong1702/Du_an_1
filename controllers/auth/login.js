@@ -50,7 +50,7 @@ const login = async (data) => {
           window.location.href = redirectUrl;
         } else {
           // Mặc định chuyển tới trang quản trị (Quản lý Tour)
-          window.location.href = '/views/admin/tour-list.html';
+          window.location.href = '/views/admin/dashboard.html';
         }
       } else {
         // Nếu không phải admin, chuyển về trang người dùng

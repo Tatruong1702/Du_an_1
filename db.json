@@ -91,6 +91,78 @@
         "transport": "Máy bay Boing 174"
       },
       "schedule": []
+    },
+    {
+      "type": "Quốc tế",
+      "name": "One piece",
+      "tour_code": "op00000",
+      "main_destination": "Tân thế giới",
+      "images": [
+        "https://i.pinimg.com/1200x/b7/b7/8f/b7b78fc9db526f797f3995d03759f5df.jpg"
+      ],
+      "short_description": "“Các người muốn lấy kho báu của ta à? Có giỏi thì tự đi lấy đi! Ta để tất cả ở ngoài biển hết đó.”\n- Gol D Roger -",
+      "price": {
+        "adult": 0,
+        "child": 0
+      },
+      "policy": {
+        "cancel": "Hủy khi tàu bị chìm",
+        "refund": "Không cần hoàn"
+      },
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "Tìm hoa tiêu",
+          "location": ""
+        },
+        {
+          "day": 1,
+          "activity": "Tìm đầu bết",
+          "location": ""
+        },
+        {
+          "day": 1,
+          "activity": "Tìm kiếm sĩ",
+          "location": ""
+        },
+        {
+          "day": 1,
+          "activity": "Tìm bác sĩ",
+          "location": ""
+        }
+      ],
+      "id": "4"
+    },
+    {
+      "type": "Nội địa",
+      "name": "Du lịch Thanh Hóa cùng Đi",
+      "tour_code": "TH06P36M",
+      "main_destination": "Thành Nhà Hồ",
+      "images": [
+        "https://mia.vn/media/uploads/blog-du-lich/du-lich-thanh-hoa-14-1695656295.jpg"
+      ],
+      "short_description": "Thành nhà Hồ được xem là một biểu tượng lịch sử và văn hóa của, được xây dựng bởi Hồ Quý Ly vào năm 1397.Sau gần 600 năm trải qua bao thăng trầm của lịch sử, những bức tường thành vững chắc với bốn cổng Đông, Tây, Nam, Bắc vẫn giữ nguyên vẻ đẹp kiến trúc ban đầu.\nVào năm 2011, UNESCO đã công nhận thành nhà Hồ là di sản văn hóa thế giới nhằm nhấn mạnh giá trị nhân văn và kiến trúc độc đáo của nơi này.",
+      "price": {
+        "adult": 360000,
+        "child": 120000
+      },
+      "policy": {
+        "cancel": "Chỉ hủy khi báo trước 1 tuần trước ngày khởi hành",
+        "refund": "Không hoàn tiền"
+      },
+      "schedule": [
+        {
+          "day": 1,
+          "activity": "Nhận phòng - nghỉ ngơi - tham quan di tích",
+          "location": "Hà Lĩnh"
+        },
+        {
+          "day": 2,
+          "activity": "Vui chơi - trả phòng - về",
+          "location": ""
+        }
+      ],
+      "id": "5"
     }
   ],
   "bookings": [
