@@ -52,8 +52,16 @@ const login = async (data) => {
           // Mặc định chuyển tới trang quản trị (Quản lý Tour)
           window.location.href = '/views/admin/tour-list.html';
         }
+      } else if (respon.user.role === 'guide') {
+        // Nếu là guide, chuyển tới trang guide
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        } else {
+          // Mặc định chuyển tới trang check-in của guide
+          window.location.href = '/views/guide/guide-checkin.html';
+        }
       } else {
-        // Nếu không phải admin, chuyển về trang người dùng
+        // Nếu không phải admin hoặc guide, chuyển về trang người dùng
         window.location.href = '/views/user/home.html';
       }
 

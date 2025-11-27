@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Nhật ký Tour</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/list.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <div
+            style="
+              width: 44px;
+              height: 44px;
+              background: var(--accent);
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #3b2a0a;
+              font-weight: 700;
+            "
+          >
+            HDV
+          </div>
+          <div>
+            <div>Hướng dẫn viên</div>
+            <small style="opacity: 0.8">v1.0</small>
+          </div>
+        </div>
+
+        <nav>
+          <div class="nav-item">
+            <i class="bi bi-house-door-fill"></i
+            ><a href="/views/user/home.html">Trang chủ</a>
+          </div>
+          <div class="nav-item">
+            <i class="bi bi-calendar-check"></i
+            ><a href="/views/guide/guide-schedule.html">Lịch trình</a>
+          </div>
+          <div class="nav-item">
+            <i class="bi bi-check-circle"></i
+            ><a href="/views/guide/guide-checkin.html">Check-in</a>
+          </div>
+          <div class="nav-item">
+            <i class="bi bi-people-fill"></i
+            ><a href="/views/guide/guide-customer.html">Khách hàng</a>
+          </div>
+          <div class="nav-item active">
+            <i class="bi bi-journal-text"></i
+            ><a href="/views/guide/guide-log.html">Nhật ký tour</a>
+          </div>
+          <div class="nav-item">
+            <i class="bi bi-exclamation-triangle"></i
+            ><a href="/views/guide/guide-special.html">Ghi chú đặc biệt</a>
+          </div>
+        </nav>
+
+        <div style="margin-top: auto; font-size: 13px; opacity: 0.9">
+          <div>Người dùng: <strong id="guideName">HDV</strong></div>
+          <div style="margin-top: 6px">
+            Email: <small id="guideEmail">-</small>
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+        <div class="topbar">
+          <button
+            class="btn btn-sm btn-outline-secondary d-md-none"
+            id="btnToggle"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <div class="me-2">VI</div>
+          <div class="btn btn-light btn-sm"><i class="bi bi-bell"></i></div>
+          <div
+            class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; font-weight: 600"
+            id="guideAvatar"
+          >
+            HDV
+          </div>
+        </div>
+
+        <h3 style="margin-bottom: 22px; color: #4a3512">Nhật ký Tour</h3>
+
+        <!-- Form thêm nhật ký -->
+        <div class="card-panel mb-3">
+          <h5>Thêm nhật ký mới</h5>
+          <form id="logForm">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label"
+                  ><strong>Chọn chuyến khởi hành:</strong></label
+                >
+                <select id="departureSelect" class="form-select" required>
+                  <option value="">-- Chọn chuyến khởi hành --</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label"><strong>Ngày thứ:</strong></label>
+                <input
+                  type="number"
+                  id="logDay"
+                  class="form-control"
+                  min="1"
+                  placeholder="1"
+                  required
+                />
+              </div>
+              <div class="col-md-3">
+                <label class="form-label"><strong>Thời gian:</strong></label>
+                <input type="time" id="logTime" class="form-control" required />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label"
+                ><strong>Nội dung nhật ký:</strong></label
+              >
+              <textarea
+                id="logNote"
+                class="form-control"
+                rows="4"
+                placeholder="Nhập nội dung nhật ký tour..."
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label class="form-label"
+                ><strong>Hình ảnh (URL, cách nhau bởi dấu phẩy):</strong></label
+              >
+              <input
+                type="text"
+                id="logImages"
+                class="form-control"
+                placeholder="Đường dẫn ảnh"
+              />
+              <br />
+              <small class="text-muted"
+                >Có thể để trống hoặc nhập nhiều URL hình ảnh cách nhau bởi dấu
+                phẩy</small
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="bi bi-plus-circle"></i> Thêm nhật ký
+            </button>
+          </form>
+        </div>
+
+        <!-- Danh sách nhật ký -->
+        <div class="card-panel">
+          <h5>Danh sách nhật ký</h5>
+          <div class="mb-3">
+            <label class="form-label">Lọc theo chuyến khởi hành:</label>
+            <select id="filterDeparture" class="form-select">
+              <option value="">-- Tất cả --</option>
+            </select>
+          </div>
+          <div id="logsContainer">
+            <p class="text-muted">Chưa có nhật ký nào</p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/controllers/guide/guide-log.js"></script>
+     <script>
+       // Kiểm tra đăng nhập và quyền guide
+       const user = JSON.parse(localStorage.getItem("currentUser"));
+       if (!user) {
+         alert("Bạn cần đăng nhập trước!");
+         window.location.href =
+           "/views/auth/login.html?redirect=/views/guide/guide-log.html";
+       } else if (user.role !== 'guide') {
+         alert('Bạn không có quyền truy cập trang này! Chỉ hướng dẫn viên mới có thể truy cập.');
+         window.location.href = '/views/user/home.html';
+       }
+     </script>
+  </body>
+</html>
